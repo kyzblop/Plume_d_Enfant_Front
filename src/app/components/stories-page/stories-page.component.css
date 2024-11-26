@@ -1,0 +1,27 @@
+.search_bar {
+    border-radius: 5px;
+    background-color: black;
+    color: white;
+    margin: 50px 0;
+}
+
+.container_stories {
+
+    /* border: black solid 2px; */
+    border-radius: 25px;
+    padding: 20px;
+    background-color: rgba(240, 248, 255, 0.179);
+    backdrop-filter: blur(4px);
+
+}
+
+.container_stories_card {
+
+    /* pour test sans fond en component */
+    width: 500px;
+    height: 500px;
+
+
+    display: flex;
+    flex-wrap: wrap;
+}

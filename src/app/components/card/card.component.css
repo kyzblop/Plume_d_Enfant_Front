@@ -1,0 +1,18 @@
+.card {
+    margin: 30px;
+    border: black 1px solid;
+    border-radius: 25px;
+    width: 400px;
+    box-shadow: 5px 5px 5px grey;
+
+    display: grid;
+}
+
+.title_card {
+    font-size: 2rem;
+}
+
+.card_bottom {
+    /* background-color: rgb(98, 31, 205); */
+    color: rgb(212, 203, 203);
+}
