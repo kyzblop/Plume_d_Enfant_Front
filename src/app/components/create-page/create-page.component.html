@@ -1,1 +1,109 @@
 <p style="color: aliceblue;">create-page works!</p>
+
+<div class="form">
+    <p class="title">Ici on fabrique votre histoire personnalisée !</p>
+    <!-- <form(ngSubmit)="onSubmit(storyForm)" #storyForm="ngForm"> -->
+    <form>
+
+        <section>
+            <div class="duo">
+                <label for="category">Sélectionner le thème de l'histoire</label>
+                <label for="age">Sélectionner la tranche d'âge</label>
+            </div>
+            <div class="duo">
+                <select name="categories" id="category">
+                    <option value="Random">Aléatoire</option>
+                    <option value="Pirate">Pirate</option>
+                    <option value="Fantastique">Fantastique</option>
+                    <option value="Far-west">Far-west</option>
+                    <option value="Medieval">Medieval</option>
+                    <option value="Spacial">Spacial</option>
+                    <option value="Futuriste">Futuriste</option>
+                </select>
+                <select name="age" id="age">
+                    <option value="Random">Aléatoire</option>
+                    <option value="2_3">2-3 ans</option>
+                    <option value="4_5">4-5 ans</option>
+                    <option value="6_7">6-7 ans</option>
+                    <option value="8_9">8-9 ans</option>
+                    <option value="10_11">10-11 ans</option>
+                </select>
+            </div>
+        </section>
+        <section>
+            <label for="">Personnage principale</label>
+            <div class="duo">
+                <input placeholder="Prénom" type="text" minlength="3" maxlength="15">
+                <input placeholder="Détails Perso principal" type="text">
+            </div>
+        </section>
+        <section>
+            <label for="">Personnage secondaire n°1</label>
+            <div class="duo">
+                <input placeholder="Prénom" type="text" minlength="3" maxlength="15">
+                <input placeholder="Détails Perso secondaire 1" type="text">
+            </div>
+            <div class="duo">
+                <label for="">Lien avec le personnage principal</label>
+            </div>
+            <div class="duo">
+                <select>
+                    <option value="aucun">Aucun</option>
+
+                    <option value="Soeur">Soeur</option>
+                    <option value="Frère">Frère</option>
+                    <option value="Cousine">Cousine</option>
+                    <option value="Cousin">Cousin</option>
+                    <option value="Mère">Mère</option>
+                    <option value="Père">Père</option>
+                    <option value="Belle-Mère">Belle-Mère</option>
+                    <option value="Beau-Père">Beau-Père</option>
+                    <option value="Grand-Mère">Grand-Mère</option>
+                    <option value="Grand-Père">Grand-Père</option>
+                    <option value="ami(e)">Ami(e)</option>
+                    <option value="amoureux(se)">Amoureux(se)</option>
+                    <option value="animal">Animal</option>
+                </select>
+            </div>
+        </section>
+        <section>
+            <label for="">Personnage secondaire n°2</label>
+            <div class="duo">
+                <input placeholder="Prénom" type="text" minlength="3" maxlength="15">
+                <input placeholder="Détails Perso secondaire 2" type="text">
+            </div>
+            <div class="duo">
+                <label for="">Lien avec le personnage principal</label>
+            </div>
+            <div class="duo">
+                <select>
+                    <option value="aucun">Aucun</option>
+                    <option value="Soeur">Soeur</option>
+                    <option value="Frère">Frère</option>
+                    <option value="Cousine">Cousine</option>
+                    <option value="Cousin">Cousin</option>
+                    <option value="Mère">"Mère</option>
+                    <option value="Père">"Père</option>
+                    <option value="Belle-Mère">Belle-Mère</option>
+                    <option value="Beau-Père">Beau-Père</option>
+                    <option value="Grand-Mère">Grand-Mère</option>
+                    <option value="Grand-Père">Grand-Père</option>
+                    <option value="ami(e)">Ami(e)</option>
+                    <option value="amoureux(se)">Amoureux(se)</option>
+                    <option value="animal">Animal</option>
+                </select>
+            </div>
+        </section>
+        <p class="add_perso"> + Ajouter un personnage secondaire</p>
+        <section>
+            <label for="">Détails supplémentaires</label>
+            <div class="duo">
+                <input placeholder="Détail supplémentaire 1" type="text">
+                <input placeholder="Détail supplémentaire 2" type="text">
+                <input placeholder="Détail supplémentaire 3" type="text">
+                <input placeholder="Détail supplémentaire 4" type="text">
+            </div>
+        </section>
+        <button class="validate">Valider</button>
+    </form>
+</div>
