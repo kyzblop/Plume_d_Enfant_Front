@@ -23,7 +23,13 @@
             "assets": [
               {
                 "glob": "**/*",
-                "input": "public"
+                "input": "public",
+                "output": "/"
+              },
+              {
+                "glob": "**/*",
+                "input": "src/assets",
+                "output": "assets"
               }
             ],
             "styles": [
@@ -85,6 +91,8 @@
             "tsConfig": "tsconfig.spec.json",
             "assets": [
               {
+                "src/assets",
+                "src/mon-dossier-images",
                 "glob": "**/*",
                 "input": "public"
               }

@@ -1,14 +1,105 @@
-<p>stories-page works!</p>
-
+<p style="color: aliceblue;">stories-page works!</p>
 
 <div class="stories_page">
-    <input class="search_bar" type="search">
+    <div class="container_search">
+        <div class="search_input_wrapper">
+            <input placeholder="Rechercher" class="search_bar" type="search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <i class="fa-solid fa-filter"></i>
+        </div>
+    </div>
+
+    <div class="container_filter">
+        <section class="left_filter">
+            <p class="title_choice">Sélectionner les catégories</p>
+            <div class="theme_choice">
+                <div class="group_choice">
+                    <input class="checkbox_input" type="checkbox">
+                    <i class="fa-solid fa-skull-crossbones"></i>
+                    <p class="checkbox_title">Pirate</p>
+                </div>
+
+                <div class="group_choice">
+                    <input class="checkbox_input" type="checkbox">
+                    <i class="fa-solid fa-skull-crossbones"></i>
+                    <p class="checkbox_title">Far-West</p>
+                </div>
+
+                <div class="group_choice">
+                    <input class="checkbox_input" type="checkbox">
+                    <i class="fa-solid fa-skull-crossbones"></i>
+                    <p class="checkbox_title">Spacial</p>
+                </div>
+
+                <div class="group_choice">
+                    <input class="checkbox_input" type="checkbox">
+                    <i class="fa-solid fa-skull-crossbones"></i>
+                    <p class="checkbox_title">Fantastique</p>
+                </div>
+
+                <div class="group_choice">
+                    <input class="checkbox_input" type="checkbox">
+                    <i class="fa-solid fa-skull-crossbones"></i>
+                    <p class="checkbox_title">Medieval</p>
+                </div>
+
+                <div class="group_choice">
+                    <input class="checkbox_input" type="checkbox">
+                    <i class="fa-solid fa-skull-crossbones"></i>
+                    <p class="checkbox_title">Futuriste</p>
+                </div>
+            </div>
+
+        </section>
+
+        <section>
+
+            <p class="title_choice">Sélectionner les tranches d'âge</p>
+            <div class="age_choice">
+                <div class="group_choice">
+                    <input class="checkbox_input" type="checkbox">
+                    <i class="fa-solid fa-circle" style="color: #13ec49;"></i>
+                    <p class="checkbox_title">2-3 ans</p>
+                </div>
+
+                <div class="group_choice">
+                    <input class="checkbox_input" type="checkbox">
+                    <i class="fa-solid fa-circle" style="color: #13ec49;"></i>
+                    <p class="checkbox_title">6-7 ans</p>
+                </div>
+
+                <div class="group_choice">
+                    <input class="checkbox_input" type="checkbox">
+                    <i class="fa-solid fa-circle" style="color: #13ec49;"></i>
+                    <p class="checkbox_title">10-11 ans</p>
+                </div>
+
+                <div class="group_choice">
+                    <input class="checkbox_input" type="checkbox">
+                    <i class="fa-solid fa-circle" style="color: #13ec49;"></i>
+                    <p class="checkbox_title">4-5 ans</p>
+                </div>
+
+                <div class="group_choice">
+                    <input class="checkbox_input" type="checkbox">
+                    <i class="fa-solid fa-circle" style="color: #13ec49;"></i>
+                    <p class="checkbox_title">8-9 ans</p>
+                </div>
+                <!-- 
+                        <div class="group_choice">
+                            <input class="checkbox_input" type="checkbox">
+    <i class="fa-solid fa-skull-crossbones"></i>
+                                <p class="checkbox_title">Futuriste</p>
+                        </div> -->
+            </div>
+        </section>
+
+    </div>
 
     <div class="container_stories">
         <h4>Liste des histoires</h4>
 
         <div class="container_stories_card">
-
             <app-card></app-card>
             <app-card></app-card>
             <app-card></app-card>

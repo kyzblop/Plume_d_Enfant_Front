@@ -1,0 +1,29 @@
+.list_stories,
+.list_users {
+    text-align: center;
+    background-color: rgba(66, 53, 182, 0.607);
+    color: rgba(245, 245, 245, 0.666);
+    width: 80%;
+    margin: auto;
+}
+
+.container_admin_stories,
+.container_admin_users {
+    border: solid 1px white;
+    border-radius: 25px;
+    padding: 40px;
+    margin: 20px;
+}
+
+th[scope='col'] {
+    background-color: #311baf;
+}
+
+td {
+    border-bottom: 1px solid rgba(207, 201, 201, 0.442);
+}
+
+caption {
+    color: rgb(217, 206, 206);
+    padding-bottom: 20px;
+}
