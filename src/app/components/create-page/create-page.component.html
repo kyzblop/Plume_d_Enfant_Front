@@ -2,16 +2,14 @@
 
 <div class="form">
     <p class="title">Ici on fabrique votre histoire personnalisée !</p>
-    <!-- <form(ngSubmit)="onSubmit(storyForm)" #storyForm="ngForm"> -->
-    <form>
-
+    <form (ngSubmit)="onSubmit(storyForm)" #storyForm="ngForm">
         <section>
             <div class="duo">
                 <label for="category">Sélectionner le thème de l'histoire</label>
                 <label for="age">Sélectionner la tranche d'âge</label>
             </div>
             <div class="duo">
-                <select name="categories" id="category">
+                <select name="category" id="category" [(ngModel)]="category">
                     <option value="Random">Aléatoire</option>
                     <option value="Pirate">Pirate</option>
                     <option value="Fantastique">Fantastique</option>
@@ -20,7 +18,7 @@
                     <option value="Spacial">Spacial</option>
                     <option value="Futuriste">Futuriste</option>
                 </select>
-                <select name="age" id="age">
+                <select name="age" id="age" [(ngModel)]="age">
                     <option value="Random">Aléatoire</option>
                     <option value="2_3">2-3 ans</option>
                     <option value="4_5">4-5 ans</option>
@@ -30,26 +28,61 @@
                 </select>
             </div>
         </section>
+
+        <!-- <section *ngFor="let perso of personnagesSecondaires; let i = index">
+            <label for="">Personnage secondaire n°{{i+1}}</label>
+            <div class="duo">
+                <input placeholder="Prénom" [(ngModel)]="personnagesSecondaires[i].prenom"
+                    [name]="'prenomSecondaire' + i" type="text" minlength="3" maxlength="15">
+                <input placeholder="Détails" [(ngModel)]="personnagesSecondaires[i].detail"
+                    [name]="'detailSecondaire' + i" type="text">
+            </div>
+            <div class="duo">
+                <label>Lien avec le personnage principal</label>
+            </div>
+            <div class="duo">
+                <select [(ngModel)]="personnagesSecondaires[i].relation" [name]="'relationSecondaire' + i">
+                    <option value="aucun">Aucun</option>
+                    <option value="Soeur">Soeur</option>
+                    <option value="Frère">Frère</option>
+                    <option value="Cousine">Cousine</option>
+                    <option value="Cousin">Cousin</option>
+                    <option value="Mère">Mère</option>
+                    <option value="Père">Père</option>
+                    <option value="Belle-Mère">Belle-Mère</option>
+                    <option value="Beau-Père">Beau-Père</option>
+                    <option value="Grand-Mère">Grand-Mère</option>
+                    <option value="Grand-Père">Grand-Père</option>
+                    <option value="ami(e)">Ami(e)</option>
+                    <option value="amoureux(se)">Amoureux(se)</option>
+                    <option value="animal">Animal</option>
+                </select>
+            </div>
+        </section> -->
+
         <section>
             <label for="">Personnage principale</label>
             <div class="duo">
-                <input placeholder="Prénom" type="text" minlength="3" maxlength="15">
-                <input placeholder="Détails Perso principal" type="text">
+                <input placeholder="Prénom" [(ngModel)]="prenomPrincipal" name="prenomPrincipal" type="text" ngModel
+                    required minlength="3" maxlength="15">
+                <input placeholder="Détails Perso principal" [(ngModel)]="detailPrincipal" name="detailPrincipal"
+                    type="text">
             </div>
         </section>
         <section>
             <label for="">Personnage secondaire n°1</label>
             <div class="duo">
-                <input placeholder="Prénom" type="text" minlength="3" maxlength="15">
-                <input placeholder="Détails Perso secondaire 1" type="text">
+                <input placeholder="Prénom" [(ngModel)]="prenomSecondaire1" name="prenomSecondaire1" type="text" ngModel
+                    required minlength="3" maxlength="15">
+                <input placeholder="Détails Perso secondaire 1" [(ngModel)]="detailSecondaire" name="detailSecondaire"
+                    type="text">
             </div>
             <div class="duo">
                 <label for="">Lien avec le personnage principal</label>
             </div>
             <div class="duo">
-                <select>
+                <select id="relationPrincipale" name="relationPrincipale" [(ngModel)]="relationPrincipale1">
                     <option value="aucun">Aucun</option>
-
                     <option value="Soeur">Soeur</option>
                     <option value="Frère">Frère</option>
                     <option value="Cousine">Cousine</option>
@@ -69,14 +102,16 @@
         <section>
             <label for="">Personnage secondaire n°2</label>
             <div class="duo">
-                <input placeholder="Prénom" type="text" minlength="3" maxlength="15">
-                <input placeholder="Détails Perso secondaire 2" type="text">
+                <input placeholder="Prénom" [(ngModel)]="prenomSecondaire2" name="prenomSecondaire2" type="text" ngModel
+                    minlength="3" maxlength="15">
+                <input placeholder="Détails Perso secondaire 2" [(ngModel)]="detailSecondaire" name="detailSecondaire"
+                    type="text">
             </div>
             <div class="duo">
                 <label for="">Lien avec le personnage principal</label>
             </div>
             <div class="duo">
-                <select>
+                <select id="relationSecondaire" name="relationSecondaire2" [(ngModel)]="relationSecondaire2">
                     <option value="aucun">Aucun</option>
                     <option value="Soeur">Soeur</option>
                     <option value="Frère">Frère</option>
@@ -98,12 +133,12 @@
         <section>
             <label for="">Détails supplémentaires</label>
             <div class="duo">
-                <input placeholder="Détail supplémentaire 1" type="text">
-                <input placeholder="Détail supplémentaire 2" type="text">
-                <input placeholder="Détail supplémentaire 3" type="text">
-                <input placeholder="Détail supplémentaire 4" type="text">
+                <input placeholder="Détail supplémentaire 1" [(ngModel)]="detailSupp1" name="detailSupp1" type="text">
+                <input placeholder="Détail supplémentaire 2" [(ngModel)]="detailSupp2" name="detailSupp2" type="text">
+                <input placeholder="Détail supplémentaire 3" [(ngModel)]="detailSupp3" name="detailSupp3" type="text">
+                <input placeholder="Détail supplémentaire 4" [(ngModel)]="detailSupp4" name="detailSupp4" type="text">
             </div>
         </section>
-        <button class="validate">Valider</button>
+        <button type="submit" class="validate">Valider</button>
     </form>
 </div>
