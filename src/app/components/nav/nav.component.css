@@ -1,45 +1,47 @@
 /* Par défaut, le mode clair */
 body {
-    background-color: #f8f9fa;
-    color: black;
-  }
-  
-  /* Style pour le mode sombre */
-  body.dark-mode {
-    background-color: #343a40;
-    color: white;
-  }
-  
-  /* Navbar en mode clair */
-  .navbar {
-    background-color: #4dc3ff; /* Bleu ciel */
-    padding: 1rem;
-  }
-  
-  /* Navbar en mode sombre */
-  body.dark-mode .navbar {
-    background-color: #2c3e50; /* Bleu plus foncé pour le mode sombre */
-  }
-  
-  /* Autres styles */
-  .nav-link {
-    font-size: 1.2rem;
-    margin: 0 1rem;
-  }
-  
-  .navbar .btn {
-    background-color: #fff;
-    color: #4dc3ff;
-    border-radius: 20px;
-    font-weight: bold;
-  }
-  
-  /* Styles des icônes du mode (soleil et lune) */
-  button .fa-sun {
-    color: yellow;
-  }
-  
-  button .fa-moon {
-    color: lightgray;
-  }
-  
+  /* background-color: #f8f9fa; */
+  color: black;
+}
+
+/* Style pour le mode sombre */
+body.dark-mode {
+  background-color: #343a40;
+  color: white;
+}
+
+/* Navbar en mode clair */
+.navbar {
+  background-color: #4dc3ff;
+
+  /* Bleu ciel */
+  padding: 1rem;
+}
+
+/* Navbar en mode sombre */
+body.dark-mode .navbar {
+  background-color: #2c3e50;
+  /* Bleu plus foncé pour le mode sombre */
+}
+
+/* Autres styles */
+.nav-link {
+  font-size: 1.2rem;
+  margin: 0 1rem;
+}
+
+.navbar .btn {
+  background-color: #fff;
+  color: #4dc3ff;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+/* Styles des icônes du mode (soleil et lune) */
+button .fa-sun {
+  color: yellow;
+}
+
+button .fa-moon {
+  color: lightgray;
+}
