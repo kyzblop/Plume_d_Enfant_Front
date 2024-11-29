@@ -29,7 +29,7 @@ export class CreatePageComponent {
   relationPrincipale1: any;
 
   onSubmit(storyForm: NgForm) {
-    console.log(storyForm.value.prenomPrincipal);
+    console.log(storyForm.value);
     storyForm.reset();
   }
 }
