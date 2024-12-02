@@ -1,1 +1,36 @@
-<p style="color: aliceblue;">home-page works!</p>
+<button class="container_button btn btn-success btn-sm d-block mx-auto" routerLink="/create">
+    Créer mon histoire
+</button>
+
+
+<!-- container 1 -->
+
+<div class="container_stories">
+    <p> Nos plus belles histoires</p>
+
+    <div class="container_stories_card">
+        @for(histoire of histoires; track histoire.id) {
+
+        <app-card (histoire.titre)>
+
+        </app-card>
+        }
+
+    </div>
+</div>
+
+<!-- container 2 -->
+
+<div class="container_stories">
+
+    <p> Vos dernières lectures </p>
+    <div class="container_stories_card">
+        @for(histoire of histoires; track histoire.id) {
+
+        <app-card (histoire.titre)>
+
+        </app-card>
+        }
+    </div>
+
+</div>

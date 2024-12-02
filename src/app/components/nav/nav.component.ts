@@ -20,11 +20,15 @@ export class NavComponent {
  signupPassword: string = '';
  loginEmail: string = '';
  loginPassword: string = '';
+ isLoggedIn: boolean = false; // Faux par défaut (utilisateur non connecté)
+
+
 
  // Soumission du formulaire d'inscription
  onSignupSubmit() {
    console.log('Inscription réussie avec :', this.signupEmail, this.signupPassword);
    alert('Inscription réussie !');
+   this.toggleLogin();
    this.resetForms();
  }
 
@@ -32,6 +36,7 @@ export class NavComponent {
  onLoginSubmit() {
    console.log('Connexion réussie avec :', this.loginEmail, this.loginPassword);
    alert('Connexion réussie !');
+   this.toggleLogin();
    this.resetForms();
  }
 
@@ -42,7 +47,16 @@ export class NavComponent {
    this.loginEmail = '';
    this.loginPassword = '';
  }
+
+// methode pour simuler la cx/decx
+ toggleLogin() {
+  this.isLoggedIn = !this.isLoggedIn;
 }
+}
+
+
+
+
 
 
 
