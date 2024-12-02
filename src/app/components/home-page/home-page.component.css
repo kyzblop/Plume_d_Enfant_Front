@@ -14,22 +14,21 @@
 }
 
 p {
-color: rgb(249, 242, 242);
-font-size: 23px; 
-font-family:cursive;
-text-align: center;
+    color: rgb(249, 242, 242);
+    font-size: 23px;
+    font-family: cursive;
+    text-align: center;
 }
 
-.container_button{
+.container_button {
     color: rgb(235, 102, 206);
     margin: 90px;
-    margin-bottom: 180px;
     padding: 20px;
     background-color: rgba(240, 248, 255, 0.179);
     backdrop-filter: blur(4px);
     border: rgb(249, 242, 242) solid 1px;
-    border-radius: 25px; 
+    border-radius: 25px;
     font-size: 25px;
-    font-family:cursive;
-    padding:20px 55px;
+    font-family: cursive;
+    padding: 20px 55px;
 }
