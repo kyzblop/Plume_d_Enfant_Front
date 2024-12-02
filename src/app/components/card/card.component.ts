@@ -1,5 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { Histoire } from "../../model/histoire";
+import { CategorieHistoire } from "../../model/categorie-histoire";
+import { CategorieAge } from "../../model/categorie-age";
+import { Utilisateur } from "../../model/utilisateur";
 
 @Component({
   selector: "app-card",
@@ -9,9 +12,10 @@ import { Histoire } from "../../model/histoire";
   styleUrl: "./card.component.css"
 })
 export class CardComponent implements OnInit {
-  histoire : Histoire [] = [{
-    0, "la belle", "il était une fois", "fantastique", "2_4", "image_histoire", 26, "Utilisateur"
-  }]
+
+  createur: Utilisateur = new Utilisateur(1, "mail@mail.com", "truc", [], [])
+  histoire : Histoire = new Histoire(1, "Le baton du ciel", "IL était une fois, un baton", CategorieHistoire.Fantastique, CategorieAge.HuitNeufAns, "", 1, this.createur) 
+  
   constructor(histoire: Histoire) {
 
   }
