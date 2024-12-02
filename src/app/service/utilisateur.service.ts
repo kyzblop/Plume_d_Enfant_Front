@@ -25,12 +25,14 @@ export class UtilisateurService {
   }
 
   // Méthode pour créer un utilisateur
+  /*
   insertUtilisateur(utilisateur: Utilisateur): Observable<String> {
     return this.http.post<String>(
       `${this.apiUrl}/utilisateurs/inscription`,
       utilisateur
     );
   }
+  */
 
   // Méthode pour modifier un utilisateur
   updateHitoire(
