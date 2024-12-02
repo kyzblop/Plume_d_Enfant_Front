@@ -71,6 +71,36 @@ section {
     color: rgba(240, 248, 255, 0.807);
 }
 
+
+.loader {
+    margin: auto;
+    display: block;
+    position: relative;
+    height: 20px;
+    width: 90%;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.loader:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 0;
+    background-color: rgb(152, 24, 237);
+    animation: 15s prog ease-in infinite;
+}
+
+@keyframes prog {
+    to {
+        width: 100%;
+    }
+}
+
+
 @media (max-width: 1023px) {
 
     p {

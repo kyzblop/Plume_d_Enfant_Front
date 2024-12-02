@@ -31,5 +31,9 @@ export class CreatePageComponent {
   onSubmit(storyForm: NgForm) {
     console.log(storyForm.value);
     storyForm.reset();
+
+    // AddCharacter () {
+
+    // }
   }
 }
