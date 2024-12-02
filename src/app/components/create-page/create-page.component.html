@@ -1,12 +1,9 @@
 <div class="form">
     <p class="title">Ici on fabrique votre histoire personnalisée !</p>
     <form (ngSubmit)="onSubmit(storyForm)" #storyForm="ngForm">
-        <section>
-            <div class="duo">
+        <section class="param_story">
+            <div class="select_param">
                 <label for="category">Sélectionner le thème de l'histoire</label>
-                <label for="age">Sélectionner la tranche d'âge</label>
-            </div>
-            <div class="duo">
                 <select name="category" id="category" [(ngModel)]="category">
                     <option value="Random">Aléatoire</option>
                     <option value="Pirate">Pirate</option>
@@ -16,6 +13,9 @@
                     <option value="Spacial">Spacial</option>
                     <option value="Futuriste">Futuriste</option>
                 </select>
+            </div>
+            <div class="select_param">
+                <label for="age">Sélectionner la tranche d'âge</label>
                 <select name="age" id="age" [(ngModel)]="age">
                     <option value="Random">Aléatoire</option>
                     <option value="2_3">2-3 ans</option>
@@ -127,7 +127,7 @@
                 </select>
             </div>
         </section>
-        <p class="add_perso"> + Ajouter un personnage secondaire</p>
+        <button class="add_perso" id="add_perso"> + Ajouter un personnage secondaire</button>
         <section>
             <label for="">Détails supplémentaires</label>
             <div class="duo">

@@ -8,11 +8,19 @@
     border-radius: 25px;
 }
 
+.param_story {
+    display: flex;
+}
+
+.select_param {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
 .duo {
     display: grid;
-
     grid-template-columns: 1fr 1fr;
-
 }
 
 .solo {
@@ -40,16 +48,62 @@ label {
 
 .add_perso {
     text-align: center;
+    padding-top: 20px;
 }
 
 section {
     padding-top: 20px;
 }
 
-.validate {
+.validate,
+.add_perso {
     padding: 15px 30px;
     border-radius: 10px;
     background-color: rgb(50, 212, 58);
     display: block;
     margin: 30px auto;
+}
+
+#add_perso {
+    background-color: rgb(152, 24, 237);
+    font-size: 1.5rem;
+    padding: 10px 30px;
+    color: rgba(240, 248, 255, 0.807);
+}
+
+@media (max-width: 1023px) {
+
+    p {
+        font-size: 1.8rem;
+    }
+
+    label {
+        font-size: 1rem;
+    }
+
+}
+
+@media (max-width: 767px) {
+
+    p {
+        font-size: 1.6rem;
+    }
+
+    .duo,
+    .solo {
+        display: block;
+    }
+
+    input,
+    select {
+        margin: 10px auto;
+        display: block;
+        width: 100%;
+
+    }
+
+    .param_story {
+        flex-direction: column;
+    }
+
 }

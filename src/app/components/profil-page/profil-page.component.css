@@ -32,3 +32,46 @@ h4 {
     flex-wrap: wrap;
     justify-content: space-around;
 }
+
+@media (max-width: 1023px) {
+    p {
+        font-size: .8rem;
+    }
+
+    .right_profil,
+    .left_profil {
+        margin: 0 auto;
+    }
+
+
+    .container_profil {
+        display: flex;
+        justify-content: space-between;
+        padding: 0px;
+    }
+
+
+
+    .profil_config {
+        padding: 5px;
+        margin: 30px;
+    }
+
+}
+
+@media (max-width: 767px) {
+    .left_profil {
+        border-right: solid 1px whitesmoke;
+        margin: 0 auto;
+        padding-right: 10px;
+    }
+
+    .right_profil {
+        margin: 0 auto;
+    }
+
+    .p_first_child {
+        padding-bottom: 10px;
+        border-bottom: solid 1px whitesmoke;
+    }
+}
