@@ -1,14 +1,14 @@
-import { HttpClient } from '@angular/common/http';
-import { inject, Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Histoire } from '../model/histoire';
-import { FormulaireHistoire } from '../model/formulaire-histoire';
+import { HttpClient } from "@angular/common/http";
+import { inject, Injectable } from "@angular/core";
+import { Observable } from "rxjs";
+import { Histoire } from "../model/histoire";
+import { FormulaireHistoire } from "../model/formulaire-histoire";
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: "root"
 })
 export class HistoireService {
-  readonly apiUrl = 'http://localhost:8080';
+  readonly apiUrl = "http://localhost:8080";
   readonly http = inject(HttpClient);
 
   constructor() {}
@@ -32,7 +32,7 @@ export class HistoireService {
   }
 
   // Méthode pour modifier une histoire
-  updateHitoire(histoire: Histoire, idHistoire: number): Observable<String> {
+  updateHistoire(histoire: Histoire, idHistoire: number): Observable<String> {
     return this.http.patch<String>(
       `${this.apiUrl}/histoires/modification/${idHistoire}`,
       histoire
