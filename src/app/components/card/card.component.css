@@ -20,10 +20,6 @@ p {
     right: 10px;
 }
 
-
-
-
-
 .card {
     margin: 30px;
     /* border: rgb(234, 225, 225) 1px solid; */
@@ -35,7 +31,7 @@ p {
 }
 
 .title_card {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
 }
 
 .card_bottom {
@@ -44,7 +40,7 @@ p {
     display: flex;
     justify-content: space-between;
     border-radius: 0 0 25px 25px;
-    height: 60px;
+    height: 115px;
     padding: 20px;
 }
 
@@ -64,4 +60,20 @@ i {
 
 .left_card {
     text-align: left;
+}
+
+.right_card {
+    height: 10px;
+}
+
+@media (max-width: 767px) {
+    .card {
+        width: 265px;
+        margin: 20px auto;
+    }
+
+    .title_card,
+    p {
+        font-size: 0.7rem;
+    }
 }
