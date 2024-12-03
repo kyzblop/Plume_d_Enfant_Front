@@ -6,13 +6,13 @@ import { StoriesPageComponent } from './components/stories-page/stories-page.com
 import { ProfilPageComponent } from './components/profil-page/profil-page.component';
 import { StoryGeneratedPageComponent } from './components/story-generated-page/story-generated-page.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
-import { authGuard } from './guards/auth.guard';
+import { AuthGuard } from './guard/auth-guard';
 
 export const routes: Routes = [
   { path: 'home', component: HomePageComponent },
-  { path: 'create', component: CreatePageComponent, canActivate: [authGuard] },
+  { path: 'create', component: CreatePageComponent, canActivate: [AuthGuard] },
   { path: 'stories', component: StoriesPageComponent },
-  { path: 'profil', component: ProfilPageComponent, canActivate: [authGuard] },
+  { path: 'profil', component: ProfilPageComponent, canActivate: [AuthGuard] },
   { path: 'lire', component: StoryGeneratedPageComponent },
   { path: 'admin', component: AdminPageComponent },
   { path: '404', component: NotFoundComponent },

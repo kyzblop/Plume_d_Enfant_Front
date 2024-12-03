@@ -1,4 +1,5 @@
 <div class="card">
+<<<<<<< HEAD
     <div class="card_top">
         <img class="picture_card" src="/assets/images/contes-pour-enfant.jpg" alt="imageu" />
         <i class="fa-regular fa-star" style="color: #ffd43b"></i>
@@ -26,3 +27,34 @@
         </section>
     </div>
 </div>
+=======
+  <div class="card_top">
+    <img class="picture_card" src="{{ histoire.imageB64Json }}" alt="imageu" />
+    <i class="fa-regular fa-star" style="color: #ffd43b"></i>
+    <i class="fa-regular fa-eye" style="color: #2cdd50"></i>
+  </div>
+
+  <div class="card_bottom">
+    <section class="left_card">
+      <p class="title_card">{{ histoire.titre }}</p>
+      <!-- <p>{{ histoire.createur }}</p> -->
+    </section>
+    <section class="right_card">
+      <div class="react">
+        <div class="ligne">
+          <i class="fa-solid fa-heart" style="color: #db0f0f"></i>
+          <p>{{ histoire.nbLike }}</p>
+        </div>
+      </div>
+      <div class="react">
+        <app-cat-histoire
+          [categorie]="histoire.categorieHistoire"
+        ></app-cat-histoire>
+      </div>
+      <div class="react">
+        <app-cat-age [categorie]="histoire.categorieAge"></app-cat-age>
+      </div>
+    </section>
+  </div>
+</div>
+>>>>>>> 90afca8f306ac37d132fea7854f83a837d05479a
