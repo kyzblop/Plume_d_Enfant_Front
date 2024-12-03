@@ -1,19 +1,17 @@
-import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
-import {
-  FormControl,
-  FormGroup,
-  FormsModule,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
-import { MatButtonModule } from '@angular/material/button';
-import { RouterLink, UrlTree } from '@angular/router';
-import { AuthService } from '../../service/auth.service';
-import { LoginDto } from '../../model/login-dto';
+import { CommonModule } from "@angular/common";
+import { Component, OnInit } from "@angular/core";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { MatButtonModule } from "@angular/material/button";
+import { Router, RouterLink, UrlTree } from "@angular/router";
+import { AuthService } from "../../service/auth.service";
+import { LoginDto } from "../../model/login-dto";
+import { HttpClientModule } from "@angular/common/http";
+import { InscriptionDto } from "../../model/inscription-dto";
+
+declare var bootstrap: any;
 
 @Component({
-  selector: 'app-nav',
+  selector: "app-nav",
   standalone: true,
   imports: [
     MatButtonModule,
@@ -21,76 +19,58 @@ import { LoginDto } from '../../model/login-dto';
     RouterLink,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule
   ],
-  templateUrl: './nav.component.html',
-  styleUrl: './nav.component.css',
+  providers: [AuthService],
+  templateUrl: "./nav.component.html",
+  styleUrl: "./nav.component.css"
 })
-export class NavComponent {
-  // Variables pour stocker les données des formulaires
-  
-  signupEmail: string = '';
-  signupPassword: string = '';
-  loginEmail: string = '';
-  loginPassword: string = '';
-  
+export class NavComponent implements OnInit {
   isLoggedIn: boolean = false; // Faux par défaut (utilisateur non connecté)
 
-  loginForm: FormGroup;
-  signupForm: FormGroup;
+  loginDto: LoginDto = { email: "", mdp: "" };
+  signupDto: InscriptionDto = { email: "", mdp: "" };
 
-  constructor(public authService: AuthService) {
-    this.loginForm = new FormGroup({
-      email: new FormControl('', [Validators.required, Validators.email]),
-      mdp: new FormControl('', [Validators.required]),
-    });
+  constructor(private authService: AuthService, private router: Router) {}
 
-    this.signupForm = new FormGroup({
-      email: new FormControl('', [Validators.required, Validators.email]),
-      mdp: new FormControl('', [Validators.required]),
-    });
+  ngOnInit(): void {
+    this.isLoggedIn = this.authService.isAuthenticated();
   }
 
   // Soumission du formulaire d'inscription
   onSignupSubmit() {
-    if (this.signupForm.valid) {
-      this.authService.login(
-        new LoginDto(
-          this.loginForm.get('email')?.value,
-          this.loginForm.get('mdp')?.value
-        )
-      );
-    }
-    alert('Inscription réussie !');
-    this.toggleLogin();
-    // this.resetForms();
+    this.authService.register(this.signupDto).subscribe({
+      next: () => {
+        console.log("Connexion reussie");
+      },
+      error: err => {
+        console.error("Connexion echouée : " + err);
+      }
+    });
+
+    const modalElement = document.getElementById("signupModal");
+    const modal = bootstrap.Modal.getInstance(modalElement);
+    modal.hide();
   }
 
   // Soumission du formulaire de connexion
   onLoginSubmit() {
-    if (this.loginForm.valid) {
-      this.authService.login(
-        new LoginDto(
-          this.loginForm.get('email')?.value,
-          this.loginForm.get('mdp')?.value
-        )
-      );
-    }
+    this.authService.login(this.loginDto).subscribe({
+      next: () => {
+        console.log("Connexion reussie");
+      },
+      error: err => {
+        console.error("Connexion echouée");
+        alert("Adresse mail ou mot de passe erronés");
+      }
+    });
 
-    this.toggleLogin();
-    // this.resetForms();
+    const modalElement = document.getElementById("loginModal");
+    const modal = bootstrap.Modal.getInstance(modalElement);
+    modal.hide();
   }
 
-  // Réinitialiser les données des formulaires
-  
-  resetForms() {
-    this.signupEmail = '';
-    this.signupPassword = '';
-    this.loginEmail = '';
-    this.loginPassword = '';
-  }
-
-  // methode pour simuler la cx/decx
-  toggleLogin() {
-    this.isLoggedIn = !this.isLoggedIn;
+  goProfil() {
+    this.router.navigate(["profil"]);
   }
 }

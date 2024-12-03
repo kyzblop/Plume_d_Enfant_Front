@@ -26,19 +26,23 @@
 
     <!-- Boutons pour S'inscrire et Se connecter -->
     <div class="d-flex">
-
-      @if (isLoggedIn) {
-      <button class="btn me-4 boutton-navbar" (click)="toggleLogin()">Mon profil
-        <img src="\assets\images\image_portrait_garcon_zoom.jpg" alt="Avatar" class="profile_avatar">
+      <!-- Affiche le bouton "Mon profil" si isLoggedIn est vrai -->
+      <button *ngIf="isLoggedIn" class="btn me-4 boutton-navbar" (click)="goProfil()">
+        Mon profil
+        <img src="/assets/images/image_portrait_garcon_zoom.jpg" alt="Avatar" class="profile_avatar" />
       </button>
-      }
 
-      @else {
-      <button class="btn me-4 boutton-navbar" data-bs-toggle="modal" data-bs-target="#signupModal">S'inscrire</button>
-      <button class="btn me-4 boutton-navbar" data-bs-toggle="modal" data-bs-target="#loginModal">Se connecter</button>
-      }
-
+      <!-- Affiche les boutons "S'inscrire" et "Se connecter" si isLoggedIn est faux -->
+      <ng-container *ngIf="!isLoggedIn">
+        <button class="btn me-4 boutton-navbar" data-bs-toggle="modal" data-bs-target="#signupModal">
+          S'inscrire
+        </button>
+        <button class="btn me-4 boutton-navbar" data-bs-toggle="modal" data-bs-target="#loginModal">
+          Se connecter
+        </button>
+      </ng-container>
     </div>
+
 
   </div>
 </nav>
@@ -57,12 +61,12 @@
         <form (ngSubmit)="onSignupSubmit()">
           <div class="mb-3">
             <label for="signupEmail" class="form-label">Adresse email</label>
-            <input type="email" class="form-control" id="signupEmail" [(ngModel)]="signupEmail" name="signupEmail"
+            <input type="email" class="form-control" id="signupEmail" [(ngModel)]="signupDto.email" name="signupEmail"
               required />
           </div>
           <div class="mb-3">
             <label for="signupPassword" class="form-label">Mot de passe</label>
-            <input type="password" class="form-control" id="signupPassword" [(ngModel)]="signupPassword"
+            <input type="password" class="form-control" id="signupPassword" [(ngModel)]="signupDto.mdp"
               name="signupPassword" required />
           </div>
           <button type="submit" class="btn btn-success btn-sm d-block mx-auto">S'inscrire</button>
@@ -87,13 +91,13 @@
         <form (ngSubmit)="onLoginSubmit()">
           <div class="mb-3">
             <label for="loginEmail" class="form-label">Adresse email</label>
-            <input type="email" class="form-control" id="loginEmail" [(ngModel)]="loginEmail" name="loginEmail"
+            <input type="email" class="form-control" id="loginEmail" name="loginEmail" [(ngModel)]="loginDto.email"
               required />
           </div>
           <div class="mb-3">
             <label for="loginPassword" class="form-label">Mot de passe</label>
-            <input type="password" class="form-control" id="loginPassword" [(ngModel)]="loginPassword"
-              name="loginPassword" required />
+            <input type="password" class="form-control" id="loginPassword" name="loginPassword"
+              [(ngModel)]="loginDto.mdp" required />
           </div>
           <button type="submit" class="btn btn-success btn-sm d-block mx-auto">Se connecter</button>
         </form>

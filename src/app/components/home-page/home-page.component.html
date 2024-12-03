@@ -9,18 +9,13 @@
 
     <div class="container_stories_card">
         @for(histoire of histoires; track histoire.id) {
-        .
-        <app-card {{histoire.titre}}></app-card>
-        } @empty {
-        <div>Aucune histoire n'est disponible actuellement.</div>
-        <div>Utilisez notre outil afin de créer la votre :D</div>
+        <app-card [histoire]="histoire"></app-card>
         }
-
     </div>
 </div>
 
+@if (isConnected) {
 <!-- container 2 -->
-
 <div class="container_stories">
     <p>Vos dernières lectures</p>
     <div class="container_stories_card">
@@ -28,13 +23,9 @@
         <div class="container_stories_card">
             @for(histoire of histoires; track histoire.id) {
 
-            <app-card {{histoire.titre}}>
-
-            </app-card>
-            } @empty {
-            <div>Aucune histoire n'est disponible actuellement.</div>
-            <div>Utilisez notre outil afin de créer la votre :D</div>
+            <app-card> </app-card>
             }
         </div>
-
     </div>
+</div>
+}
