@@ -1,1 +1,48 @@
-<p style="color: aliceblue;">story-generated-page works!</p>
+<div class="container_stories">
+    @for(histoire of histoires; track histoire.id) {
+
+    <div class="content_story">
+
+        <i class="fa-regular fa-star" style="color: #FFD43B;"></i>
+        <div class="center_story">
+
+            <p class="title">{{histoire.titre}}</p>
+
+            <div class=" param_story">
+                <div class="param">
+                    <i class="fa-solid fa-hat-wizard" style="color: #d543df;"></i>
+                    <p>{{histoire.categorieHistoire}}</p>
+                </div>
+                <div class="param">
+                    <i class="fa-solid fa-circle" style="color: #0afbff;"></i>
+                    <p class="param">{{histoire.categorieAge}}</p>
+
+                </div>
+            </div>
+            <p>{{histoire.createur}}</p>
+        </div>
+
+        <p class="story">{{histoire.corps}}</p>
+
+        <p class="the_end">Fin</p>
+
+        <div class="react">
+
+
+            <div class="react_block">
+                <i class="fa-solid fa-heart" style="color: #db0f0f;"></i>
+                <p>J'aime cette histoire</p>
+            </div>
+            <div class="react_block">
+                <i class="fa-solid fa-download"></i>
+                <p>Télécharger cette histoire</p>
+            </div>
+            <div class="react_block">
+                <i class="fa-solid fa-share"></i>
+                <p>Partager cette histoire</p>
+            </div>
+        </div>
+    </div>
+    }
+
+</div>

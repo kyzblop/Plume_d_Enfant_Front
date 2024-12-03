@@ -1,0 +1,114 @@
+.container_stories {
+    background-image: url("/assets/images/contes-pour-enfant.jpg");
+    /* background-color: rgba(240, 248, 255, 0.179); */
+    border: rgb(249, 242, 242) solid 2px;
+    border-radius: 25px;
+    color: rgb(37, 164, 203);
+    text-align: center;
+    width: 80%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 20px auto;
+
+}
+
+.background_img {
+    object-fit: contain;
+    width: 100%;
+    opacity: 50%;
+    border-radius: 25px;
+
+}
+
+.content_story {
+    padding: 30px 100px;
+    width: 100%;
+    backdrop-filter: blur(10px);
+    padding: 50px;
+    border-radius: 25px;
+    background-color: rgba(0, 0, 0, 0.758);
+    font-size: 1.2rem;
+}
+
+.param_story {
+    display: flex;
+    justify-content: center;
+}
+
+.param {
+    padding: 0 50px;
+    display: flex;
+}
+
+.story {
+    text-align: justify;
+    text-shadow: 1px 1px 10px;
+    padding-top: 50px;
+}
+
+.title {
+    padding: 20px;
+    font-size: 3rem;
+}
+
+.fa-star {
+    position: relative;
+    top: 50px;
+    left: 535px;
+}
+
+.center_story {
+    display: flex;
+    flex-direction: column;
+}
+
+.react {
+    display: flex;
+    justify-content: space-around;
+}
+
+.react_block {
+    display: flex;
+    padding: 10px;
+}
+
+.the_end {
+    padding: 50px;
+}
+
+@media (max-width: 1439px) {
+    .fa-star {
+        top: 10px;
+        left: 335px;
+    }
+}
+
+@media (max-width: 1023px) {
+    .fa-star {
+        left: 235px;
+    }
+}
+
+@media (max-width: 767px) {
+    .fa-star {
+        left: 135px;
+    }
+
+    .content_story {
+        font-size: 0.9rem;
+        padding: 20px;
+    }
+
+    .param {
+        padding: 0 20px;
+    }
+
+    .story {
+        padding-top: 20px;
+    }
+
+    .title {
+        padding: 10px;
+    }
+}

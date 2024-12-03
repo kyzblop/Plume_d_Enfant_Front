@@ -12,7 +12,7 @@ export const routes: Routes = [
   { path: "create", component: CreatePageComponent },
   { path: "stories", component: StoriesPageComponent },
   { path: "profil", component: ProfilPageComponent },
-  { path: "story-generated", component: StoryGeneratedPageComponent },
+  { path: "read", component: StoryGeneratedPageComponent },
   { path: "admin", component: AdminPageComponent },
   { path: "404", component: NotFoundComponent },
   { path: "**", redirectTo: "/404" }
