@@ -6,6 +6,7 @@ import { StoriesPageComponent } from "./components/stories-page/stories-page.com
 import { ProfilPageComponent } from "./components/profil-page/profil-page.component";
 import { StoryGeneratedPageComponent } from "./components/story-generated-page/story-generated-page.component";
 import { NotFoundComponent } from "./components/not-found/not-found.component";
+import { authGuard } from "./guards/auth.guard";
 
 export const routes: Routes = [
   { path: "", component: HomePageComponent },

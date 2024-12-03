@@ -2,11 +2,10 @@
     Créer mon histoire
 </button>
 
-
 <!-- container 1 -->
 
 <div class="container_stories">
-    <p> Nos plus belles histoires</p>
+    <p>Nos plus belles histoires</p>
 
     <div class="container_stories_card">
         @for(histoire of histoires; track histoire.id) {
@@ -23,18 +22,19 @@
 <!-- container 2 -->
 
 <div class="container_stories">
-
-    <p> Vos dernières lectures </p>
+    <p>Vos dernières lectures</p>
     <div class="container_stories_card">
-        @for(histoire of histoires; track histoire.id) {
+        <p> Vos dernières lectures </p>
+        <div class="container_stories_card">
+            @for(histoire of histoires; track histoire.id) {
 
-        <app-card {{histoire.titre}}>
+            <app-card {{histoire.titre}}>
 
-        </app-card>
-        } @empty {
-        <div>Aucune histoire n'est disponible actuellement.</div>
-        <div>Utilisez notre outil afin de créer la votre :D</div>
-        }
+            </app-card>
+            } @empty {
+            <div>Aucune histoire n'est disponible actuellement.</div>
+            <div>Utilisez notre outil afin de créer la votre :D</div>
+            }
+        </div>
+
     </div>
-
-</div>

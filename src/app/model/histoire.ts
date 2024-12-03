@@ -3,7 +3,7 @@ import { CategorieAge } from './categorie-age';
 import { Utilisateur } from './utilisateur';
 export class Histoire {
   constructor(
-    public id: string,
+    public id: number,
     public titre: string,
     public corps: string,
     public categorieHistoire: CategorieHistoire,
