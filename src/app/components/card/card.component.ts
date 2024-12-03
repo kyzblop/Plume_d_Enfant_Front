@@ -12,18 +12,19 @@ import { Utilisateur } from "../../model/utilisateur";
   styleUrl: "./card.component.css"
 })
 export class CardComponent implements OnInit {
-  @Input()
+  createur: Utilisateur = new Utilisateur(1, "mail@mail.com", "truc", [], []);
   histoire: Histoire = new Histoire(
-    "0",
-    "la belle",
-    "il était une fois",
+    1,
+    "Le baton du ciel",
+    "IL était une fois, un baton",
     CategorieHistoire.Fantastique,
-    CategorieAge.DeuxTroisAns,
-    "image_histoire",
-    26,
-    new Utilisateur("1", "utilisateur@example.com", "password", [], [])
+    CategorieAge.HuitNeufAns,
+    "",
+    1,
+    this.createur
   );
-  constructor() {}
+
+  constructor(histoire: Histoire) {}
 
   ngOnInit(): void {}
 }

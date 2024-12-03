@@ -2,7 +2,7 @@ import { Histoire } from './histoire';
 
 export class Utilisateur {
   constructor(
-    public id: string,
+    public id: number,
     public email: string,
     public mdp: string,
     public listeFavori: Array<Histoire>,

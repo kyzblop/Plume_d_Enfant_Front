@@ -1,33 +1,32 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { HomePageComponent } from './components/home-page/home-page.component';
-import { CreatePageComponent } from './components/create-page/create-page.component';
-import { StoriesPageComponent } from './components/stories-page/stories-page.component';
-import { StoryGeneratedPageComponent } from './components/story-generated-page/story-generated-page.component';
-import { AdminPageComponent } from './components/admin-page/admin-page.component';
-import { ProfilPageComponent } from './components/profil-page/profil-page.component';
+import { Component, OnInit } from '@angular/core';
+import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { NavComponent } from './components/nav/nav.component';
-import { CommonModule } from '@angular/common';
 import { FooterComponent } from './components/footer/footer.component';
-import { HttpClient } from '@angular/common/http';
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [
-    RouterOutlet,
-    NavComponent,
-    HomePageComponent,
-    CreatePageComponent,
-    StoriesPageComponent,
-    StoryGeneratedPageComponent,
-    AdminPageComponent,
-    ProfilPageComponent,
-    FooterComponent,
-  ],
+  imports: [RouterOutlet, NavComponent, FooterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'plumedEnfant_Front';
+
+  is404: boolean = false;
+
+  constructor(private router: Router) {}
+
+  ngOnInit(): void {
+    this.router.events
+      .pipe(filter((event) => event instanceof NavigationEnd))
+      .subscribe(() => {
+        let currentUrl = this.router.url;
+
+        if (currentUrl == '/404') {
+          this.is404 = true;
+        }
+      });
+  }
 }

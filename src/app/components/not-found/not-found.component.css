@@ -1,3 +1,18 @@
-p {
-    color: whitesmoke
+h2 {
+  color: whitesmoke;
+
+  text-align: center;
+
+  position: relative;
+  top: 50%;
+}
+
+:host {
+  display: block;
+
+  background-image: url("/assets/images/DALL·E-2024-12-02-17.10.jpg");
+  background-size: cover;
+  background-position: 50% 75%;
+  background-repeat: no-repeat;
+  height: 100vh;
 }

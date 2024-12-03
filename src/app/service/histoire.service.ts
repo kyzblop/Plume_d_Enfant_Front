@@ -1,17 +1,16 @@
-import { HttpClient } from "@angular/common/http";
-import { inject, Injectable } from "@angular/core";
-import { Observable } from "rxjs";
-import { Histoire } from "../model/histoire";
-import { FormulaireHistoire } from "../model/formulaire-histoire";
+import { HttpClient } from '@angular/common/http';
+import { inject, Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Histoire } from '../model/histoire';
+import { FormulaireHistoire } from '../model/formulaire-histoire';
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root',
 })
 export class HistoireService {
-  readonly apiUrl = "http://localhost:8080";
-  readonly http = inject(HttpClient);
+  readonly apiUrl = 'http://localhost:8080';
 
-  constructor() {}
+  constructor(public http: HttpClient) {}
 
   // Méthode pour récupérer une histoire par son id
   getHistoireById(idHistoire: number): Observable<Histoire> {
