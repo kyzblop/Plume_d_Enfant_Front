@@ -13,7 +13,7 @@ export const routes: Routes = [
   { path: 'create', component: CreatePageComponent, canActivate: [authGuard] },
   { path: 'stories', component: StoriesPageComponent },
   { path: 'profil', component: ProfilPageComponent, canActivate: [authGuard] },
-  { path: 'story-generated', component: StoryGeneratedPageComponent },
+  { path: 'lire', component: StoryGeneratedPageComponent },
   { path: 'admin', component: AdminPageComponent },
   { path: '404', component: NotFoundComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
