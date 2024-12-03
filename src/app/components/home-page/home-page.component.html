@@ -10,10 +10,11 @@
 
     <div class="container_stories_card">
         @for(histoire of histoires; track histoire.id) {
-
-        <app-card (histoire.titre)>
-
-        </app-card>
+        .
+        <app-card {{histoire.titre}}></app-card>
+        } @empty {
+        <div>Aucune histoire n'est disponible actuellement.</div>
+        <div>Utilisez notre outil afin de créer la votre :D</div>
         }
 
     </div>
@@ -27,9 +28,12 @@
     <div class="container_stories_card">
         @for(histoire of histoires; track histoire.id) {
 
-        <app-card (histoire.titre)>
+        <app-card {{histoire.titre}}>
 
         </app-card>
+        } @empty {
+        <div>Aucune histoire n'est disponible actuellement.</div>
+        <div>Utilisez notre outil afin de créer la votre :D</div>
         }
     </div>
 

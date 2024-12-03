@@ -1,7 +1,6 @@
 import { CommonModule, NgFor } from "@angular/common";
 import { Component } from "@angular/core";
 import { FormsModule, NgForm } from "@angular/forms";
-import { log } from "console";
 
 @Component({
   selector: "app-create-page",
