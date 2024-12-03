@@ -30,7 +30,7 @@
     <!-- Boutons pour S'inscrire et Se connecter -->
     <div class="d-flex">
       @if (isLoggedIn) {
-      <button class="btn me-4 boutton-navbar" (click)="toggleLogin()">
+      <button class="btn me-4 boutton-navbar" (click)="goProfil()">
         Mon profil
         <img
           src="\assets\images\image_portrait_garcon_zoom.jpg"
@@ -85,7 +85,7 @@
               type="email"
               class="form-control"
               id="signupEmail"
-              formControlName="email"
+              [(ngModel)]="signupDto.email"
               name="signupEmail"
               required
             />
@@ -96,7 +96,7 @@
               type="password"
               class="form-control"
               id="signupPassword"
-              formControlName="mdp"
+              [(ngModel)]="signupDto.mdp"
               name="signupPassword"
               required
             />
@@ -130,7 +130,7 @@
       </div>
       <div class="modal-body">
         <!-- Formulaire de connexion -->
-        <form [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()">
+        <form (ngSubmit)="onLoginSubmit()">
           <div class="mb-3">
             <label for="loginEmail" class="form-label">Adresse email</label>
             <input
@@ -138,7 +138,7 @@
               class="form-control"
               id="loginEmail"
               name="loginEmail"
-              formControlName="email"
+              [(ngModel)]="loginDto.email"
               required
             />
           </div>
@@ -149,7 +149,7 @@
               class="form-control"
               id="loginPassword"
               name="loginPassword"
-              formControlName="mdp"
+              [(ngModel)]="loginDto.mdp"
               required
             />
           </div>

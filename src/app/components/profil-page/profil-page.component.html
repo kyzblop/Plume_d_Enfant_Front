@@ -1,43 +1,39 @@
 <section class="profil_config">
+  <h3>Votre profil</h3>
 
-    <h3>Votre profil</h3>
-
-    <div class="container_profil">
-        <div class="left_profil">
-            <p class="p_first_child">Changer mon mot de passe</p>
-            <p>Changer mon adresse mail</p>
-        </div>
-        <div class="right_profil">
-            <p class="p_first_child">Supprimer mon compte</p>
-            <p>=> Se déconnecter</p>
-        </div>
-
+  <div class="container_profil">
+    <div class="left_profil">
+      <p class="p_first_child">Changer mon mot de passe</p>
+      <p>Changer mon adresse mail</p>
     </div>
+    <div class="right_profil">
+      <p class="p_first_child">Supprimer mon compte</p>
+      <a (click)="seDeconnecter()">=> Se déconnecter</a>
+    </div>
+  </div>
 </section>
 
 <section class="container_stories_create">
-
-    <h4>Vos histoires créées</h4>
-    <div class="container_stories_card">
-        <app-card></app-card>
-        <app-card></app-card>
-        <app-card></app-card>
-    </div>
-
+  <h4>Vos histoires créées</h4>
+  <div class="container_stories_card">
+    <app-card></app-card>
+    <app-card></app-card>
+    <app-card></app-card>
+  </div>
 </section>
 <section class="container_stories_favorite">
-    <h4>Vos histoires préférées</h4>
-    <div class="container_stories_card">
-        <app-card></app-card>
-        <app-card></app-card>
-        <app-card></app-card>
-    </div>
+  <h4>Vos histoires préférées</h4>
+  <div class="container_stories_card">
+    <app-card></app-card>
+    <app-card></app-card>
+    <app-card></app-card>
+  </div>
 </section>
 <section class="container_stories_like">
-    <h4>Vos histoires aimées</h4>
-    <div class="container_stories_card">
-        <app-card></app-card>
-        <app-card></app-card>
-        <app-card></app-card>
-    </div>
+  <h4>Vos histoires aimées</h4>
+  <div class="container_stories_card">
+    <app-card></app-card>
+    <app-card></app-card>
+    <app-card></app-card>
+  </div>
 </section>

@@ -5,16 +5,14 @@ import { AuthResponseDto } from '../model/auth-response-dto';
 import { LoginDto } from '../model/login-dto';
 import { InscriptionDto } from '../model/inscription-dto';
 import { Utilisateur } from '../model/utilisateur';
-import { response } from 'express';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   readonly apiUrl = 'http://localhost:8080';
-  readonly http = inject(HttpClient);
 
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
   // Méthode pour se login
   login(loginDto: LoginDto): Observable<AuthResponseDto> {
@@ -54,8 +52,35 @@ export class AuthService {
     }
   }
 
+  getUserId(): number {
+    // Récupérer le token
+    const token = localStorage.getItem('token');
+
+    if (!token) {
+      return 0;
+    }
+
+    try {
+      // Decoder le token
+      const tokenPayload = JSON.parse(atob(token.split('.')[1]));
+      // Retourner l'id de l'utilisateur du token ou -1 s'il n'existe pas
+      return tokenPayload.idUser || -1;
+    } catch (error) {
+      console.error('Erreur de décodage du token : ' + error);
+      return -1;
+    }
+  }
+
   isAuthenticated() {
     // Retourne true ou false selon si le token existe
-    return !!localStorage.getItem('token');
+    if (typeof window !== 'undefined' && window.localStorage) {
+      // LocalStorage est disponible (côté client)
+      return !!localStorage.getItem('token');
+    }
+    return false; // Pas d'accès à localStorage (probablement côté serveur ou environnement de test)
+  }
+
+  logout(): void {
+    localStorage.removeItem('token'); // Remove the token
   }
 }

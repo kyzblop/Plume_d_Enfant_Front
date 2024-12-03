@@ -1,25 +1,24 @@
-import { CommonModule, NgFor } from "@angular/common";
-import { Component } from "@angular/core";
-import { FormsModule, NgForm } from "@angular/forms";
-import { log } from "console";
+import { CommonModule, NgFor } from '@angular/common';
+import { Component } from '@angular/core';
+import { FormsModule, NgForm } from '@angular/forms';
 
 @Component({
-  selector: "app-create-page",
+  selector: 'app-create-page',
   standalone: true,
   imports: [FormsModule, CommonModule],
-  templateUrl: "./create-page.component.html",
-  styleUrl: "./create-page.component.css"
+  templateUrl: './create-page.component.html',
+  styleUrl: './create-page.component.css',
 })
 export class CreatePageComponent {
-  prenomPrincipal: string = "";
-  prenomSecondaire: string = "";
-  detailPrincipal: string = "";
-  detailSecondaire: string = "";
-  detailSupp1: string = "";
-  detailSupp2: string = "";
-  detailSupp3: string = "";
-  detailSupp4: string = "";
-  category: string = "Aléatoire";
+  prenomPrincipal: string = '';
+  prenomSecondaire: string = '';
+  detailPrincipal: string = '';
+  detailSecondaire: string = '';
+  detailSupp1: string = '';
+  detailSupp2: string = '';
+  detailSupp3: string = '';
+  detailSupp4: string = '';
+  category: string = 'Aléatoire';
   age: any;
   personnagesSecondaires: any;
 

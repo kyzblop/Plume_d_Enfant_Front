@@ -12,14 +12,13 @@
 
   <div class="container_stories_card">
     @for(histoire of histoires; track histoire.id) {
-
-    <app-card> </app-card>
+    <app-card [histoire]="histoire"></app-card>
     }
   </div>
 </div>
 
+@if (isConnected) {
 <!-- container 2 -->
-
 <div class="container_stories">
   <p>Vos dernières lectures</p>
   <div class="container_stories_card">
@@ -29,3 +28,4 @@
     }
   </div>
 </div>
+}

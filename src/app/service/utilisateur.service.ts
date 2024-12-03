@@ -8,9 +8,8 @@ import { Utilisateur } from '../model/utilisateur';
 })
 export class UtilisateurService {
   readonly apiUrl = 'http://localhost:8080';
-  readonly http = inject(HttpClient);
 
-  constructor() {}
+  constructor(public http: HttpClient) {}
 
   // Méthode pour récupérer un utilisateur par son id
   getUtilisateurById(idUtilisateur: number): Observable<Utilisateur> {
