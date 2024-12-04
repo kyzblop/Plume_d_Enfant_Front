@@ -8,6 +8,8 @@ import { LienEntrePersonnages } from '../../model/lien-entre-personnages';
 import { HistoireService } from '../../service/histoire.service';
 import { FormulaireHistoire } from '../../model/formulaire-histoire';
 import { AuthService } from '../../service/auth.service';
+import { response } from 'express';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-page',
@@ -19,24 +21,16 @@ import { AuthService } from '../../service/auth.service';
 export class CreatePageComponent {
   constructor(
     private histoireService: HistoireService,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) {}
-
-  prenomPersoPrincipal: string = '';
-  detailPersoPrincipal: string = '';
 
   personnagesSecondaires: PersonnageSecondaire[] = [
     new PersonnageSecondaire('', '', LienEntrePersonnages.Ami),
-    new PersonnageSecondaire('', '', LienEntrePersonnages.Amoureux),
-    new PersonnageSecondaire('', '', LienEntrePersonnages.Animal),
   ];
 
   categorieHistoire: CategorieHistoire = CategorieHistoire.Fantastique;
   categorieAge: CategorieAge = CategorieAge.DeuxTroisAns;
-  detail1: string = '';
-  detail2: string = '';
-  detail3: string = '';
-  detail4: string = '';
 
   formulaire: FormulaireHistoire = new FormulaireHistoire(
     0,
@@ -52,18 +46,33 @@ export class CreatePageComponent {
     console.log('Formulaire soumis');
     this.formulaire = new FormulaireHistoire(
       0,
-      this.categorieHistoire,
-      this.categorieAge,
-      this.prenomPersoPrincipal,
-      this.detailPersoPrincipal,
+      storyForm.value.category,
+      storyForm.value.age,
+      storyForm.value.prenomPrincipal,
+      storyForm.value.detailPrincipal,
       this.personnagesSecondaires,
-      [this.detail1, this.detail2, this.detail3, this.detail4]
+      [
+        storyForm.value.detailSupp1 || '',
+        storyForm.value.detailSupp2 || '',
+        storyForm.value.detailSupp3 || '',
+        storyForm.value.detailSupp4 || '',
+      ]
     );
 
     this.formulaire.idCreateur = this.authService.getUserId();
     console.log(this.authService.getUserRoles());
     console.log(this.formulaire);
-    this.histoireService.insertHistoire(this.formulaire);
+    this.histoireService.insertHistoire(this.formulaire).subscribe({
+      next: (response: any) => {
+        console.log(response);
+        this.histoireService.getLastHistoire().subscribe((histoire) => {
+          this.router.navigate(['read/' + histoire.id]);
+        });
+      },
+      error: (err) => {
+        console.error('insert failed', err);
+      },
+    });
   }
 
   addPersonnageSecondaire() {

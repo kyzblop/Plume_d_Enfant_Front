@@ -1,7 +1,36 @@
-<div>
-  <h2>{{ histoire.titre }}</h2>
-  <p>Categorie : {{ histoire.categorieHistoire }}</p>
-  <p>Age : {{ histoire.categorieAge }}</p>
+<div class="container_stories" [style]="getBackGround()">
+  <div class="content_story">
+    <i class="fa-regular fa-star" style="color: #ffd43b"></i>
+    <div class="center_story">
+      <p class="title">{{ histoire.titre }}</p>
 
-  <p>{{ histoire.corps }}</p>
+      <div class="param_story">
+        <div class="param">
+          <app-cat-histoire [categorie]="catHistoire"></app-cat-histoire>
+        </div>
+        <div class="param">
+          <app-cat-age [categorie]="catAge"></app-cat-age>
+        </div>
+      </div>
+    </div>
+
+    <p class="story">{{ histoire.corps }}</p>
+
+    <p class="the_end">Fin</p>
+
+    <div class="react">
+      <div class="react_block">
+        <i class="fa-solid fa-heart" style="color: #db0f0f"></i>
+        <p>J'aime cette histoire</p>
+      </div>
+      <div class="react_block">
+        <i class="fa-solid fa-download"></i>
+        <p>Télécharger cette histoire</p>
+      </div>
+      <div class="react_block">
+        <i class="fa-solid fa-share"></i>
+        <p>Partager cette histoire</p>
+      </div>
+    </div>
+  </div>
 </div>

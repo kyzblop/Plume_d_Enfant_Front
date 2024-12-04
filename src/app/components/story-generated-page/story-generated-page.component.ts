@@ -5,11 +5,13 @@ import { CategorieAge } from '../../model/categorie-age';
 import { HistoireService } from '../../service/histoire.service';
 import { Utilisateur } from '../../model/utilisateur';
 import { ActivatedRoute } from '@angular/router';
+import { CatHistoireComponent } from '../cat-histoire/cat-histoire.component';
+import { CatAgeComponent } from '../cat-age/cat-age.component';
 
 @Component({
   selector: 'app-story-generated-page',
   standalone: true,
-  imports: [],
+  imports: [CatHistoireComponent, CatAgeComponent],
   templateUrl: './story-generated-page.component.html',
   styleUrl: './story-generated-page.component.css',
 })
@@ -29,22 +31,27 @@ export class StoryGeneratedPageComponent implements OnInit {
 
   promesseGetHistoire!: Promise<string>;
 
+  catHistoire: CategorieHistoire = CategorieHistoire.Spacial;
+  catAge: CategorieAge = CategorieAge.DeuxTroisAns;
+
   constructor(
     private histoireService: HistoireService,
     private route: ActivatedRoute
-  ) {
+  ) {}
+
+  ngOnInit(): void {
+    this.idHistoire = this.route.snapshot.paramMap.get('id');
+
     this.promesseGetHistoire = new Promise((resolve, reject) => {
       try {
         this.getHistoire();
+        this.catHistoire = this.histoire.categorieHistoire;
+        this.catAge = this.histoire.categorieAge;
         resolve("L'histoire est bien récupérée");
       } catch (error) {
         reject("L'histoire n'est pas récupérée");
       }
     });
-  }
-
-  ngOnInit(): void {
-    this.idHistoire = this.route.snapshot.paramMap.get('id');
   }
 
   getHistoire(): void {
@@ -55,5 +62,9 @@ export class StoryGeneratedPageComponent implements OnInit {
           this.histoire = histoire;
         });
     }
+  }
+
+  getBackGround() {
+    return `background-image: url(${this.histoire.imageB64Json});`;
   }
 }

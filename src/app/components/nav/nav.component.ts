@@ -42,9 +42,11 @@ export class NavComponent implements OnInit {
     this.authService.register(this.signupDto).subscribe({
       next: () => {
         console.log('Connexion reussie');
+        this.isLoggedIn = true;
       },
       error: (err) => {
         console.error('Connexion echouée : ' + err);
+        this.isLoggedIn = false;
       },
     });
 

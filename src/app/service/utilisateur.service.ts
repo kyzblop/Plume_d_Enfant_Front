@@ -23,30 +23,20 @@ export class UtilisateurService {
     return this.http.get<Utilisateur[]>(`${this.apiUrl}/utilisateurs`);
   }
 
-  // Méthode pour créer un utilisateur
-  /*
-  insertUtilisateur(utilisateur: Utilisateur): Observable<String> {
-    return this.http.post<String>(
-      `${this.apiUrl}/utilisateurs/inscription`,
-      utilisateur
-    );
-  }
-  */
-
   // Méthode pour modifier un utilisateur
   updateHitoire(
     utilisateur: Utilisateur,
     idUtilisateur: number
-  ): Observable<String> {
-    return this.http.patch<String>(
+  ): Observable<string> {
+    return this.http.patch<string>(
       `${this.apiUrl}/utilisateurs/modification/${idUtilisateur}`,
       utilisateur
     );
   }
 
   //Méthode pour supprimer un utilisateur
-  deleteUtilisateur(idUtilisateur: number): Observable<String> {
-    return this.http.delete<String>(
+  deleteUtilisateur(idUtilisateur: number): Observable<string> {
+    return this.http.delete<string>(
       `${this.apiUrl}/utilisateurs/${idUtilisateur}`
     );
   }

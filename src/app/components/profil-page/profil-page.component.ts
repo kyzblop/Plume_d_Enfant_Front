@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { CardComponent } from '../card/card.component';
 import { Router } from '@angular/router';
 import { AuthService } from '../../service/auth.service';
+import { HistoireService } from '../../service/histoire.service';
+import { Histoire } from '../../model/histoire';
 
 @Component({
   selector: 'app-profil-page',
@@ -11,7 +13,19 @@ import { AuthService } from '../../service/auth.service';
   styleUrl: './profil-page.component.css',
 })
 export class ProfilPageComponent {
-  constructor(private router: Router, private authService: AuthService) {}
+  listVosHistoiresCrees: Histoire[] = [];
+
+  constructor(
+    private router: Router,
+    private authService: AuthService,
+    private histoireService: HistoireService
+  ) {
+    histoireService
+      .getVosHistoireCrees(authService.getUserId())
+      .subscribe((histoires) => {
+        this.listVosHistoiresCrees = histoires;
+      });
+  }
 
   seDeconnecter() {
     this.authService.logout();

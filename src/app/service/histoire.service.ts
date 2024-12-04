@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { Observable, throwError } from 'rxjs';
+import { catchError, Observable, tap, throwError } from 'rxjs';
 import { Histoire } from '../model/histoire';
 import { FormulaireHistoire } from '../model/formulaire-histoire';
 import { AuthService } from './auth.service';
@@ -23,36 +23,70 @@ export class HistoireService {
     return this.http.get<Histoire[]>(`${this.apiUrl}/histoires`);
   }
 
-  // Méthode pour demander la génération d'histoire à partir du formulaire
-  insertHistoire(formulaire: FormulaireHistoire): Observable<String> {
+  // Méthode pour récupérer la dernière histoire
+  getLastHistoire(): Observable<Histoire> {
+    return this.http.get<Histoire>(`${this.apiUrl}/histoires/last`);
+  }
+
+  // Méthode pour récupérer la liste d'histoires créées par une personne
+  getVosHistoireCrees(idUtilisateur: number): Observable<Histoire[]> {
     const token = localStorage.getItem('token');
     if (!token) {
       return throwError('Token manquant');
     }
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${token}`,
-    });
+    const headers = new HttpHeaders()
+      .set('Authorization', `Bearer ${token}`)
+      .set('Content-Type', 'application/json');
+
+    return this.http
+      .get<Histoire[]>(`${this.apiUrl}/histoires/${idUtilisateur}/crees`, {
+        headers: headers,
+      })
+      .pipe(
+        tap((response: any) => {
+          console.log('Statut HTTP:', response.status);
+          console.log('Corps de la réponse:', response.body);
+        })
+      );
+  }
+
+  // Méthode pour demander la génération d'histoire à partir du formulaire
+  insertHistoire(formulaire: FormulaireHistoire): Observable<string> {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      return throwError('Token manquant');
+    }
+    const headers = new HttpHeaders()
+      .set('Authorization', `Bearer ${token}`)
+      .set('Content-Type', 'application/json');
 
     // const jsonFormulaire = JSON.stringify(formulaire);
-    // console.log(jsonFormulaire);
+    console.log(headers);
+    console.log('Formulaire dans le service : ' + JSON.stringify(formulaire));
 
-    return this.http.post<String>(
-      `${this.apiUrl}/histoires/creation`,
-      formulaire,
-      { headers }
-    );
+    return this.http
+      .post<string>(`${this.apiUrl}/histoires/creation`, formulaire, {
+        headers: headers,
+        observe: 'response',
+      })
+      .pipe(
+        tap((response: any) => {
+          console.log('Statut HTTP:', response.status);
+          console.log('Corps de la réponse:', response.body);
+        })
+      );
   }
 
   // Méthode pour modifier une histoire
-  updateHistoire(histoire: Histoire, idHistoire: number): Observable<String> {
-    return this.http.patch<String>(
+  updateHistoire(histoire: Histoire, idHistoire: number): Observable<string> {
+    return this.http.patch<string>(
       `${this.apiUrl}/histoires/modification/${idHistoire}`,
       histoire
     );
   }
 
   //Méthode pour supprimer une histoire
-  deleteHistoire(idHistoire: number): Observable<String> {
-    return this.http.delete<String>(`${this.apiUrl}/histoires/${idHistoire}`);
+  deleteHistoire(idHistoire: number): Observable<string> {
+    return this.http.delete<string>(`${this.apiUrl}/histoires/${idHistoire}`);
   }
 }

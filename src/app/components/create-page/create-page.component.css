@@ -91,7 +91,7 @@ section {
     height: 100%;
     width: 0;
     background-color: rgb(152, 24, 237);
-    animation: 15s prog ease-in infinite;
+    animation: 25s prog ease-in infinite;
 }
 
 @keyframes prog {

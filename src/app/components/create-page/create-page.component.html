@@ -27,43 +27,11 @@
       </div>
     </section>
 
-    <!-- <section *ngFor="let perso of personnagesSecondaires; let i = index">
-            <label for="">Personnage secondaire n°{{i+1}}</label>
-            <div class="duo">
-                <input placeholder="Prénom" [(ngModel)]="personnagesSecondaires[i].prenom"
-                    [name]="'prenomSecondaire' + i" type="text" minlength="3" maxlength="15">
-                <input placeholder="Détails" [(ngModel)]="personnagesSecondaires[i].detail"
-                    [name]="'detailSecondaire' + i" type="text">
-            </div>
-            <div class="duo">
-                <label>Lien avec le personnage principal</label>
-            </div>
-            <div class="duo">
-                <select [(ngModel)]="personnagesSecondaires[i].relation" [name]="'relationSecondaire' + i">
-                    <option value="aucun">Aucun</option>
-                    <option value="Soeur">Soeur</option>
-                    <option value="Frère">Frère</option>
-                    <option value="Cousine">Cousine</option>
-                    <option value="Cousin">Cousin</option>
-                    <option value="Mère">Mère</option>
-                    <option value="Père">Père</option>
-                    <option value="Belle-Mère">Belle-Mère</option>
-                    <option value="Beau-Père">Beau-Père</option>
-                    <option value="Grand-Mère">Grand-Mère</option>
-                    <option value="Grand-Père">Grand-Père</option>
-                    <option value="ami(e)">Ami(e)</option>
-                    <option value="amoureux(se)">Amoureux(se)</option>
-                    <option value="animal">Animal</option>
-                </select>
-            </div>
-        </section> -->
-
     <section>
       <label for="">Personnage principale</label>
       <div class="duo">
         <input
           placeholder="Prénom"
-          [(ngModel)]="prenomPersoPrincipal"
           name="prenomPrincipal"
           type="text"
           ngModel
@@ -73,7 +41,6 @@
         />
         <input
           placeholder="Détails Perso principal"
-          [(ngModel)]="detailPersoPrincipal"
           name="detailPrincipal"
           type="text"
         />
@@ -140,25 +107,21 @@
       <div class="duo">
         <input
           placeholder="Détail supplémentaire 1"
-          [(ngModel)]="detail1"
           name="detailSupp1"
           type="text"
         />
         <input
           placeholder="Détail supplémentaire 2"
-          [(ngModel)]="detail2"
           name="detailSupp2"
           type="text"
         />
         <input
           placeholder="Détail supplémentaire 3"
-          [(ngModel)]="detail3"
           name="detailSupp3"
           type="text"
         />
         <input
           placeholder="Détail supplémentaire 4"
-          [(ngModel)]="detail4"
           name="detailSupp4"
           type="text"
         />
