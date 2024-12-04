@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { Observable, tap } from 'rxjs';
+import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { AuthResponseDto } from '../model/auth-response-dto';
 import { LoginDto } from '../model/login-dto';
 import { InscriptionDto } from '../model/inscription-dto';

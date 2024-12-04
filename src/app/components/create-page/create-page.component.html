@@ -5,7 +5,7 @@
       <div class="select_param">
         <label for="category">Sélectionner le thème de l'histoire</label>
         <select name="category" id="category" [(ngModel)]="categorieHistoire">
-          <option value="Random">Aléatoire</option>
+          <!-- <option value="Random">Aléatoire</option> -->
           <option value="PIRATE">Pirate</option>
           <option value="FANTASTIQUE">Fantastique</option>
           <option value="FARWEST">Far-west</option>
@@ -17,7 +17,7 @@
       <div class="select_param">
         <label for="age">Sélectionner la tranche d'âge</label>
         <select name="age" id="age" [(ngModel)]="categorieAge">
-          <option value="Random">Aléatoire</option>
+          <!-- <option value="Random">Aléatoire</option> -->
           <option value="DEUX_TROIS_ANS">2-3 ans</option>
           <option value="QUATRE_CINQ_ANS">4-5 ans</option>
           <option value="SIX_SEPT_ANS">6-7 ans</option>
@@ -99,6 +99,7 @@
       class="add_perso"
       id="add_perso"
       (click)="addPersonnageSecondaire()"
+      type="button"
     >
       + Ajouter un personnage secondaire
     </button>
@@ -131,7 +132,8 @@
   </form>
 
   <!-- quand submit et chargement de l'histoire par IA -->
-
-  <p>Merci pour votre patience, on fabrique votre histoire</p>
-  <span class="loader"></span>
+  <div class="chargement" id="barreChargement">
+    <p>Merci pour votre patience, on fabrique votre histoire</p>
+    <span class="loader"></span>
+  </div>
 </div>

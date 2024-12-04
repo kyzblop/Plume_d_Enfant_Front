@@ -1,139 +1,135 @@
 .form {
-    color: aliceblue;
-    margin: 50px;
-    padding: 20px;
-    background-color: rgba(240, 248, 255, 0.179);
-    backdrop-filter: blur(4px);
-    border: rgb(249, 242, 242) solid 1px;
-    border-radius: 25px;
+  color: aliceblue;
+  margin: 50px;
+  padding: 20px;
+  background-color: rgba(240, 248, 255, 0.179);
+  backdrop-filter: blur(4px);
+  border: rgb(249, 242, 242) solid 1px;
+  border-radius: 25px;
 }
 
 .param_story {
-    display: flex;
+  display: flex;
 }
 
 .select_param {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 .duo {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
 .solo {
-    display: grid;
-    grid-template-columns: 1fr;
+  display: grid;
+  grid-template-columns: 1fr;
 }
 
 input,
 select {
-    height: 40px;
-    margin: 10px 20px 20px 20px;
-    border-radius: 10px;
-
+  height: 40px;
+  margin: 10px 20px 20px 20px;
+  border-radius: 10px;
 }
 
 p {
-    text-align: center;
-    font-size: 2rem;
+  text-align: center;
+  font-size: 2rem;
 }
 
 label {
-    padding-left: 20px;
-    font-size: 1.5rem;
+  padding-left: 20px;
+  font-size: 1.5rem;
 }
 
 .add_perso {
-    text-align: center;
-    padding-top: 20px;
+  text-align: center;
+  padding-top: 20px;
 }
 
 section {
-    padding-top: 20px;
+  padding-top: 20px;
 }
 
 .validate,
 .add_perso {
-    padding: 15px 30px;
-    border-radius: 10px;
-    background-color: rgb(50, 212, 58);
-    display: block;
-    margin: 30px auto;
+  padding: 15px 30px;
+  border-radius: 10px;
+  background-color: rgb(50, 212, 58);
+  display: block;
+  margin: 30px auto;
 }
 
 #add_perso {
-    background-color: rgb(152, 24, 237);
-    font-size: 1.5rem;
-    padding: 10px 30px;
-    color: rgba(240, 248, 255, 0.807);
+  background-color: rgb(152, 24, 237);
+  font-size: 1.5rem;
+  padding: 10px 30px;
+  color: rgba(240, 248, 255, 0.807);
 }
 
-
 .loader {
-    margin: auto;
-    display: block;
-    position: relative;
-    height: 20px;
-    width: 90%;
-    border: 1px solid #fff;
-    border-radius: 5px;
-    overflow: hidden;
+  margin: auto;
+  display: block;
+  position: relative;
+  height: 20px;
+  width: 90%;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  overflow: hidden;
 }
 
 .loader:after {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 0;
-    background-color: rgb(152, 24, 237);
-    animation: 25s prog ease-in infinite;
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 0;
+  background-color: rgb(152, 24, 237);
+  animation: 25s prog ease-in infinite;
+}
+
+.chargement {
+  display: none;
 }
 
 @keyframes prog {
-    to {
-        width: 100%;
-    }
+  to {
+    width: 100%;
+  }
 }
 
-
 @media (max-width: 1023px) {
+  p {
+    font-size: 1.8rem;
+  }
 
-    p {
-        font-size: 1.8rem;
-    }
-
-    label {
-        font-size: 1rem;
-    }
-
+  label {
+    font-size: 1rem;
+  }
 }
 
 @media (max-width: 767px) {
+  p {
+    font-size: 1.6rem;
+  }
 
-    p {
-        font-size: 1.6rem;
-    }
+  .duo,
+  .solo {
+    display: block;
+  }
 
-    .duo,
-    .solo {
-        display: block;
-    }
+  input,
+  select {
+    margin: 10px auto;
+    display: block;
+    width: 100%;
+  }
 
-    input,
-    select {
-        margin: 10px auto;
-        display: block;
-        width: 100%;
-
-    }
-
-    .param_story {
-        flex-direction: column;
-    }
-
+  .param_story {
+    flex-direction: column;
+  }
 }

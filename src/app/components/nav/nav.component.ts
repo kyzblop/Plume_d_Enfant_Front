@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { Router, RouterLink, UrlTree } from '@angular/router';
@@ -25,17 +25,13 @@ declare var bootstrap: any;
   templateUrl: './nav.component.html',
   styleUrl: './nav.component.css',
 })
-export class NavComponent implements OnInit {
-  isLoggedIn: boolean = false; // Faux par défaut (utilisateur non connecté)
+export class NavComponent {
+  isLoggedIn: boolean = false;
 
   loginDto: LoginDto = { email: '', mdp: '' };
   signupDto: InscriptionDto = { email: '', mdp: '' };
 
   constructor(private authService: AuthService, private router: Router) {}
-
-  ngOnInit(): void {
-    this.isLoggedIn = this.authService.isAuthenticated();
-  }
 
   // Soumission du formulaire d'inscription
   onSignupSubmit() {
@@ -53,6 +49,8 @@ export class NavComponent implements OnInit {
     const modalElement = document.getElementById('signupModal');
     const modal = bootstrap.Modal.getInstance(modalElement);
     modal.hide();
+
+    location.reload();
   }
 
   // Soumission du formulaire de connexion
@@ -70,6 +68,8 @@ export class NavComponent implements OnInit {
     const modalElement = document.getElementById('loginModal');
     const modal = bootstrap.Modal.getInstance(modalElement);
     modal.hide();
+
+    location.reload();
   }
 
   goProfil() {

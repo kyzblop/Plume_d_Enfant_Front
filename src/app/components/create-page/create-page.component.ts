@@ -73,11 +73,18 @@ export class CreatePageComponent {
         console.error('insert failed', err);
       },
     });
+
+    this.showChargement();
   }
 
   addPersonnageSecondaire() {
     this.personnagesSecondaires.push(
       new PersonnageSecondaire('', '', LienEntrePersonnages.Camarade)
     );
+  }
+
+  showChargement() {
+    (document.getElementById('barreChargement') as HTMLElement).style.display =
+      'block';
   }
 }
