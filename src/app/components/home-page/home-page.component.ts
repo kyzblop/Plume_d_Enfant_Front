@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CardComponent } from '../card/card.component';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { Histoire } from '../../model/histoire';
 import { HistoireService } from '../../service/histoire.service';
 import { AuthService } from '../../service/auth.service';
@@ -19,12 +19,17 @@ export class HomePageComponent {
 
   constructor(
     private histoireService: HistoireService,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) {
     histoireService.getAllHistoire().subscribe((histoires) => {
       this.histoires = histoires;
     });
 
     this.isConnected = authService.isAuthenticated();
+  }
+
+  goHistoire(id: number) {
+    this.router.navigate(['/read/', id]);
   }
 }

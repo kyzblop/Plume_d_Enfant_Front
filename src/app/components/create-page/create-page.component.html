@@ -1,33 +1,33 @@
 <div class="form">
-    <p class="title">Ici on fabrique votre histoire personnalisée !</p>
-    <form (ngSubmit)="onSubmit(storyForm)" #storyForm="ngForm">
-        <section class="param_story">
-            <div class="select_param">
-                <label for="category">Sélectionner le thème de l'histoire</label>
-                <select name="category" id="category" [(ngModel)]="category">
-                    <option value="Random">Aléatoire</option>
-                    <option value="Pirate">Pirate</option>
-                    <option value="Fantastique">Fantastique</option>
-                    <option value="Far-west">Far-west</option>
-                    <option value="Medieval">Medieval</option>
-                    <option value="Spacial">Spacial</option>
-                    <option value="Futuriste">Futuriste</option>
-                </select>
-            </div>
-            <div class="select_param">
-                <label for="age">Sélectionner la tranche d'âge</label>
-                <select name="age" id="age" [(ngModel)]="age">
-                    <option value="Random">Aléatoire</option>
-                    <option value="2_3">2-3 ans</option>
-                    <option value="4_5">4-5 ans</option>
-                    <option value="6_7">6-7 ans</option>
-                    <option value="8_9">8-9 ans</option>
-                    <option value="10_11">10-11 ans</option>
-                </select>
-            </div>
-        </section>
+  <p class="title">Ici on fabrique votre histoire personnalisée !</p>
+  <form (ngSubmit)="onSubmit(storyForm)" #storyForm="ngForm">
+    <section class="param_story">
+      <div class="select_param">
+        <label for="category">Sélectionner le thème de l'histoire</label>
+        <select name="category" id="category" [(ngModel)]="categorieHistoire">
+          <option value="Random">Aléatoire</option>
+          <option value="PIRATE">Pirate</option>
+          <option value="FANTASTIQUE">Fantastique</option>
+          <option value="FARWEST">Far-west</option>
+          <option value="MEDIEVAL">Medieval</option>
+          <option value="SPACIAL">Spacial</option>
+          <option value="FUTURISTE">Futuriste</option>
+        </select>
+      </div>
+      <div class="select_param">
+        <label for="age">Sélectionner la tranche d'âge</label>
+        <select name="age" id="age" [(ngModel)]="categorieAge">
+          <option value="Random">Aléatoire</option>
+          <option value="DEUX_TROIS_ANS">2-3 ans</option>
+          <option value="QUATRE_CINQ_ANS">4-5 ans</option>
+          <option value="SIX_SEPT_ANS">6-7 ans</option>
+          <option value="HUIT_NEUF_ANS">8-9 ans</option>
+          <option value="DIX_ONZE_ANS">10-11 ans</option>
+        </select>
+      </div>
+    </section>
 
-        <!-- <section *ngFor="let perso of personnagesSecondaires; let i = index">
+    <!-- <section *ngFor="let perso of personnagesSecondaires; let i = index">
             <label for="">Personnage secondaire n°{{i+1}}</label>
             <div class="duo">
                 <input placeholder="Prénom" [(ngModel)]="personnagesSecondaires[i].prenom"
@@ -58,92 +58,117 @@
             </div>
         </section> -->
 
-        <section>
-            <label for="">Personnage principale</label>
-            <div class="duo">
-                <input placeholder="Prénom" [(ngModel)]="prenomPrincipal" name="prenomPrincipal" type="text" ngModel
-                    required minlength="3" maxlength="15">
-                <input placeholder="Détails Perso principal" [(ngModel)]="detailPrincipal" name="detailPrincipal"
-                    type="text">
-            </div>
-        </section>
-        <section>
-            <label for="">Personnage secondaire n°1</label>
-            <div class="duo">
-                <input placeholder="Prénom" [(ngModel)]="prenomSecondaire1" name="prenomSecondaire1" type="text" ngModel
-                    required minlength="3" maxlength="15">
-                <input placeholder="Détails Perso secondaire 1" [(ngModel)]="detailSecondaire" name="detailSecondaire"
-                    type="text">
-            </div>
-            <div class="duo">
-                <label for="">Lien avec le personnage principal</label>
-            </div>
-            <div class="duo">
-                <select id="relationPrincipale" name="relationPrincipale" [(ngModel)]="relationPrincipale1">
-                    <option value="aucun">Aucun</option>
-                    <option value="Soeur">Soeur</option>
-                    <option value="Frère">Frère</option>
-                    <option value="Cousine">Cousine</option>
-                    <option value="Cousin">Cousin</option>
-                    <option value="Mère">Mère</option>
-                    <option value="Père">Père</option>
-                    <option value="Belle-Mère">Belle-Mère</option>
-                    <option value="Beau-Père">Beau-Père</option>
-                    <option value="Grand-Mère">Grand-Mère</option>
-                    <option value="Grand-Père">Grand-Père</option>
-                    <option value="ami(e)">Ami(e)</option>
-                    <option value="amoureux(se)">Amoureux(se)</option>
-                    <option value="animal">Animal</option>
-                </select>
-            </div>
-        </section>
-        <section>
-            <label for="">Personnage secondaire n°2</label>
-            <div class="duo">
-                <input placeholder="Prénom" [(ngModel)]="prenomSecondaire2" name="prenomSecondaire2" type="text" ngModel
-                    minlength="3" maxlength="15">
-                <input placeholder="Détails Perso secondaire 2" [(ngModel)]="detailSecondaire" name="detailSecondaire"
-                    type="text">
-            </div>
-            <div class="duo">
-                <label for="">Lien avec le personnage principal</label>
-            </div>
-            <div class="duo">
-                <select id="relationSecondaire" name="relationSecondaire2" [(ngModel)]="relationSecondaire2">
-                    <option value="aucun">Aucun</option>
-                    <option value="Soeur">Soeur</option>
-                    <option value="Frère">Frère</option>
-                    <option value="Cousine">Cousine</option>
-                    <option value="Cousin">Cousin</option>
-                    <option value="Mère">"Mère</option>
-                    <option value="Père">"Père</option>
-                    <option value="Belle-Mère">Belle-Mère</option>
-                    <option value="Beau-Père">Beau-Père</option>
-                    <option value="Grand-Mère">Grand-Mère</option>
-                    <option value="Grand-Père">Grand-Père</option>
-                    <option value="ami(e)">Ami(e)</option>
-                    <option value="amoureux(se)">Amoureux(se)</option>
-                    <option value="animal">Animal</option>
-                </select>
-            </div>
-        </section>
-        <button class="add_perso" id="add_perso"> + Ajouter un personnage secondaire</button>
-        <section>
-            <label for="">Détails supplémentaires</label>
-            <div class="duo">
-                <input placeholder="Détail supplémentaire 1" [(ngModel)]="detailSupp1" name="detailSupp1" type="text">
-                <input placeholder="Détail supplémentaire 2" [(ngModel)]="detailSupp2" name="detailSupp2" type="text">
-                <input placeholder="Détail supplémentaire 3" [(ngModel)]="detailSupp3" name="detailSupp3" type="text">
-                <input placeholder="Détail supplémentaire 4" [(ngModel)]="detailSupp4" name="detailSupp4" type="text">
-            </div>
-        </section>
-        <button type="submit" class="validate">Valider</button>
-    </form>
+    <section>
+      <label for="">Personnage principale</label>
+      <div class="duo">
+        <input
+          placeholder="Prénom"
+          [(ngModel)]="prenomPersoPrincipal"
+          name="prenomPrincipal"
+          type="text"
+          ngModel
+          required
+          minlength="3"
+          maxlength="15"
+        />
+        <input
+          placeholder="Détails Perso principal"
+          [(ngModel)]="detailPersoPrincipal"
+          name="detailPrincipal"
+          type="text"
+        />
+      </div>
+    </section>
 
-    <!-- quand submit et chargement de l'histoire par IA -->
+    @for (personnage of personnagesSecondaires; track $index) {
+    <section>
+      <label for="">Personnage secondaire n°{{ $index + 1 }}</label>
+      <div class="duo">
+        <input
+          placeholder="Prénom"
+          [(ngModel)]="personnagesSecondaires[$index].nom"
+          name="prenomSecondaire1"
+          type="text"
+          ngModel
+          required
+          minlength="3"
+          maxlength="15"
+        />
+        <input
+          placeholder="Détails Perso secondaire 1"
+          [(ngModel)]="personnagesSecondaires[$index].details"
+          name="detailSecondaire"
+          type="text"
+        />
+      </div>
+      <div class="duo">
+        <label for="">Lien avec le personnage principal</label>
+      </div>
+      <div class="duo">
+        <select
+          id="relationPrincipale"
+          name="relationPrincipale"
+          [(ngModel)]="personnagesSecondaires[$index].lien"
+        >
+          <option value="FRERE_SOEUR">Frère et soeur</option>
+          <option value="PARENT">Parent</option>
+          <option value="ENFANT">Enfant</option>
+          <option value="GRAND_PARENT">Grand-parent</option>
+          <option value="PETIT_ENFANT">Petit-enfant</option>
+          <option value="COUSIN">Cousin</option>
+          <option value="AMI">Ami</option>
+          <option value="AMOUREUX">Amoureux</option>
+          <option value="MEILLEUR_AMI">Meilleur ami</option>
+          <option value="INCONNU">Inconnu</option>
+          <option value="VOISIN">Voisin</option>
+          <option value="CAMARADE">Camarade</option>
+          <option value="ANIMAL">Animal</option>
+        </select>
+      </div>
+    </section>
+    }
 
+    <button
+      class="add_perso"
+      id="add_perso"
+      (click)="addPersonnageSecondaire()"
+    >
+      + Ajouter un personnage secondaire
+    </button>
+    <section>
+      <label for="">Détails supplémentaires</label>
+      <div class="duo">
+        <input
+          placeholder="Détail supplémentaire 1"
+          [(ngModel)]="detail1"
+          name="detailSupp1"
+          type="text"
+        />
+        <input
+          placeholder="Détail supplémentaire 2"
+          [(ngModel)]="detail2"
+          name="detailSupp2"
+          type="text"
+        />
+        <input
+          placeholder="Détail supplémentaire 3"
+          [(ngModel)]="detail3"
+          name="detailSupp3"
+          type="text"
+        />
+        <input
+          placeholder="Détail supplémentaire 4"
+          [(ngModel)]="detail4"
+          name="detailSupp4"
+          type="text"
+        />
+      </div>
+    </section>
+    <button type="submit" class="validate">Valider</button>
+  </form>
 
+  <!-- quand submit et chargement de l'histoire par IA -->
 
-    <p>Merci pour votre patience, on fabrique votre histoire</p>
-    <span class="loader"></span>
+  <p>Merci pour votre patience, on fabrique votre histoire</p>
+  <span class="loader"></span>
 </div>

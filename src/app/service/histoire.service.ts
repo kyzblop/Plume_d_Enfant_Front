@@ -1,8 +1,9 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { Histoire } from '../model/histoire';
 import { FormulaireHistoire } from '../model/formulaire-histoire';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root',
@@ -24,9 +25,21 @@ export class HistoireService {
 
   // Méthode pour demander la génération d'histoire à partir du formulaire
   insertHistoire(formulaire: FormulaireHistoire): Observable<String> {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      return throwError('Token manquant');
+    }
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`,
+    });
+
+    // const jsonFormulaire = JSON.stringify(formulaire);
+    // console.log(jsonFormulaire);
+
     return this.http.post<String>(
       `${this.apiUrl}/histoires/creation`,
-      formulaire
+      formulaire,
+      { headers }
     );
   }
 
