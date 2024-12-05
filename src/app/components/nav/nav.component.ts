@@ -25,7 +25,7 @@ declare var bootstrap: any;
   templateUrl: './nav.component.html',
   styleUrl: './nav.component.css',
 })
-export class NavComponent {
+export class NavComponent implements OnInit {
   isLoggedIn: boolean = false;
 
   loginDto: LoginDto = { email: '', mdp: '' };
@@ -33,24 +33,24 @@ export class NavComponent {
 
   constructor(private authService: AuthService, private router: Router) {}
 
+  ngOnInit(): void {
+    this.isLoggedIn = this.authService.isAuthenticated();
+  }
+
   // Soumission du formulaire d'inscription
   onSignupSubmit() {
     this.authService.register(this.signupDto).subscribe({
       next: () => {
         console.log('Connexion reussie');
-        this.isLoggedIn = true;
       },
       error: (err) => {
         console.error('Connexion echouée : ' + err);
-        this.isLoggedIn = false;
       },
     });
 
     const modalElement = document.getElementById('signupModal');
     const modal = bootstrap.Modal.getInstance(modalElement);
     modal.hide();
-
-    location.reload();
   }
 
   // Soumission du formulaire de connexion
@@ -69,7 +69,7 @@ export class NavComponent {
     const modal = bootstrap.Modal.getInstance(modalElement);
     modal.hide();
 
-    location.reload();
+    // location.reload();
   }
 
   goProfil() {
