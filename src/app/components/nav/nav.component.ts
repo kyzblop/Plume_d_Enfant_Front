@@ -1,5 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import {
+  Component,
+  OnChanges,
+  OnDestroy,
+  OnInit,
+  SimpleChanges,
+} from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { Router, RouterLink, UrlTree } from '@angular/router';
@@ -7,6 +13,7 @@ import { AuthService } from '../../service/auth.service';
 import { LoginDto } from '../../model/login-dto';
 import { HttpClientModule } from '@angular/common/http';
 import { InscriptionDto } from '../../model/inscription-dto';
+import { Subscription } from 'rxjs';
 
 declare var bootstrap: any;
 
@@ -19,14 +26,13 @@ declare var bootstrap: any;
     RouterLink,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule,
   ],
-  providers: [AuthService],
   templateUrl: './nav.component.html',
   styleUrl: './nav.component.css',
 })
-export class NavComponent implements OnInit {
+export class NavComponent implements OnInit, OnDestroy {
   isLoggedIn: boolean = false;
+  private authSubscription: Subscription | null = null;
 
   loginDto: LoginDto = { email: '', mdp: '' };
   signupDto: InscriptionDto = { email: '', mdp: '' };
@@ -34,7 +40,17 @@ export class NavComponent implements OnInit {
   constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {
-    this.isLoggedIn = this.authService.isAuthenticated();
+    this.authSubscription = this.authService.isAuthObservable.subscribe(
+      (authStatus) => {
+        this.isLoggedIn = authStatus;
+      }
+    );
+  }
+
+  ngOnDestroy(): void {
+    if (this.authSubscription) {
+      this.authSubscription.unsubscribe();
+    }
   }
 
   // Soumission du formulaire d'inscription
@@ -68,8 +84,6 @@ export class NavComponent implements OnInit {
     const modalElement = document.getElementById('loginModal');
     const modal = bootstrap.Modal.getInstance(modalElement);
     modal.hide();
-
-    // location.reload();
   }
 
   goProfil() {

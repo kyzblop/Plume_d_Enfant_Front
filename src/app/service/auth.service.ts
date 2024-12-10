@@ -12,7 +12,14 @@ import { Utilisateur } from '../model/utilisateur';
 export class AuthService {
   readonly apiUrl = 'http://localhost:8080';
 
-  constructor(private http: HttpClient) {}
+  public isAuthSubject = new BehaviorSubject<boolean>(this.isAuthenticated());
+  public isAuthObservable = this.isAuthSubject.asObservable();
+
+  constructor(private http: HttpClient) {
+    if (typeof window !== 'undefined') {
+      this.checkLocalStorage();
+    }
+  }
 
   // Méthode pour se login
   login(loginDto: LoginDto): Observable<AuthResponseDto> {
@@ -21,6 +28,7 @@ export class AuthService {
       .pipe(
         tap((response: { accessToken: string }) => {
           localStorage.setItem('token', response.accessToken);
+          this.isAuthSubject.next(true); // L'utilisateur est connecté
         })
       );
   }
@@ -81,6 +89,19 @@ export class AuthService {
   }
 
   logout(): void {
-    localStorage.removeItem('token'); // Remove the token
+    if (typeof window !== 'undefined') {
+      localStorage.removeItem('token'); // Remove the token
+      this.isAuthSubject.next(false); // L'utilisateur est déconnecté
+      console.log('obs depuis service', this.isAuthSubject.value);
+    }
+  }
+
+  // Regarder si le token change
+  checkLocalStorage() {
+    window.addEventListener('storage', (event) => {
+      if (event.key === 'token') {
+        this.isAuthSubject.next(this.isAuthenticated());
+      }
+    });
   }
 }
