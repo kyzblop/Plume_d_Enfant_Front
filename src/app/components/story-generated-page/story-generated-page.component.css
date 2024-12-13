@@ -43,6 +43,11 @@
 .story {
   text-align: justify;
   /*text-shadow: 1px 1px 10px;*/
+
+  /* white-space: pre-line; */
+
+  text-indent: 15%;
+
   padding-top: 50px;
   line-height: 40px;
 }

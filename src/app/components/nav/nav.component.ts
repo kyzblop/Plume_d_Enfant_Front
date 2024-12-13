@@ -61,6 +61,7 @@ export class NavComponent implements OnInit, OnDestroy {
       },
       error: (err) => {
         console.error('Connexion echouée : ' + err);
+        alert('Cet email est déjà utilisé')
       },
     });
 

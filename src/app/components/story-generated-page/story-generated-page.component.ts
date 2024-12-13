@@ -65,6 +65,6 @@ export class StoryGeneratedPageComponent implements OnInit {
   }
 
   getBackGround() {
-    return `background-image: url(${this.histoire.imageB64Json});`;
+    return `background-image: url(${this.histoire.urlImage});`;
   }
 }

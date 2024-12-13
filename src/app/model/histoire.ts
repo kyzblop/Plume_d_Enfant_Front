@@ -8,7 +8,7 @@ export class Histoire {
     public corps: string,
     public categorieHistoire: CategorieHistoire,
     public categorieAge: CategorieAge,
-    public imageB64Json: string,
+    public urlImage: string,
     public nbLike: number,
     public createur: Utilisateur
   ) {}
