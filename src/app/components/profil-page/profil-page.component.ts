@@ -7,10 +7,10 @@ import { Histoire } from '../../model/histoire';
 
 @Component({
   selector: 'app-profil-page',
-  standalone: true,
   imports: [CardComponent],
   templateUrl: './profil-page.component.html',
   styleUrl: './profil-page.component.css',
+  standalone: true,
 })
 export class ProfilPageComponent {
   listVosHistoiresCrees: Histoire[] = [];

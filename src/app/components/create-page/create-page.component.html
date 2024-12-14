@@ -28,7 +28,7 @@
     </section>
 
     <section>
-      <label for="">Personnage principale</label>
+      <label for="prenomPrincipal">Personnage principale</label>
       <div class="duo">
         <input
           placeholder="Prénom"
@@ -49,7 +49,9 @@
 
     @for (personnage of personnagesSecondaires; track $index) {
     <section>
-      <label for="">Personnage secondaire n°{{ $index + 1 }}</label>
+      <label for="prenomSecondaire1"
+        >Personnage secondaire n°{{ $index + 1 }}</label
+      >
       <div class="duo">
         <input
           placeholder="Prénom"
@@ -69,7 +71,9 @@
         />
       </div>
       <div class="duo">
-        <label for="">Lien avec le personnage principal</label>
+        <label for="relationPrincipale"
+          >Lien avec le personnage principal</label
+        >
       </div>
       <div class="duo">
         <select
@@ -104,7 +108,7 @@
       + Ajouter un personnage secondaire
     </button>
     <section>
-      <label for="">Détails supplémentaires</label>
+      <label for="detailSupp1">Détails supplémentaires</label>
       <div class="duo">
         <input
           placeholder="Détail supplémentaire 1"

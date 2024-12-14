@@ -7,10 +7,10 @@ import { AuthService } from '../../service/auth.service';
 
 @Component({
   selector: 'app-home-page',
-  standalone: true,
   imports: [CardComponent, RouterLink],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.css',
+  standalone: true,
 })
 export class HomePageComponent {
   histoires: Histoire[] = [];

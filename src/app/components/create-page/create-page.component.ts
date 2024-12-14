@@ -13,10 +13,10 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-page',
-  standalone: true,
   imports: [FormsModule, CommonModule],
   templateUrl: './create-page.component.html',
   styleUrl: './create-page.component.css',
+  standalone: true,
 })
 export class CreatePageComponent {
   constructor(

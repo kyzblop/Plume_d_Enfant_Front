@@ -8,10 +8,10 @@ import { CatAgeComponent } from '../cat-age/cat-age.component';
 
 @Component({
   selector: 'app-card',
-  standalone: true,
   imports: [CatHistoireComponent, CatAgeComponent],
   templateUrl: './card.component.html',
   styleUrl: './card.component.css',
+  standalone: true,
 })
 export class CardComponent {
   createur: Utilisateur = new Utilisateur(1, 'mail@mail.com', 'truc', [], []);

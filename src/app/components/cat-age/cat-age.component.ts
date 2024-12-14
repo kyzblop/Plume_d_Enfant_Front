@@ -3,10 +3,10 @@ import { CategorieAge } from '../../model/categorie-age';
 
 @Component({
   selector: 'app-cat-age',
-  standalone: true,
   imports: [],
   templateUrl: './cat-age.component.html',
   styleUrl: './cat-age.component.css',
+  standalone: true,
 })
 export class CatAgeComponent {
   @Input()

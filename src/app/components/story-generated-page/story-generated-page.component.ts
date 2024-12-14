@@ -5,15 +5,15 @@ import { CategorieAge } from '../../model/categorie-age';
 import { HistoireService } from '../../service/histoire.service';
 import { Utilisateur } from '../../model/utilisateur';
 import { ActivatedRoute } from '@angular/router';
-import { CatHistoireComponent } from '../cat-histoire/cat-histoire.component';
 import { CatAgeComponent } from '../cat-age/cat-age.component';
+import { CatHistoireComponent } from '../cat-histoire/cat-histoire.component';
 
 @Component({
   selector: 'app-story-generated-page',
-  standalone: true,
-  imports: [CatHistoireComponent, CatAgeComponent],
+  imports: [CatAgeComponent, CatHistoireComponent],
   templateUrl: './story-generated-page.component.html',
   styleUrl: './story-generated-page.component.css',
+  standalone: true,
 })
 export class StoryGeneratedPageComponent implements OnInit {
   utilisateur: Utilisateur = new Utilisateur(1, '', '', [], []);

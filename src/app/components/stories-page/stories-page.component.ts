@@ -9,10 +9,10 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-stories-page',
-  standalone: true,
   imports: [CardComponent, FormsModule],
   templateUrl: './stories-page.component.html',
   styleUrl: './stories-page.component.css',
+  standalone: true,
 })
 export class StoriesPageComponent {
   histoires: Histoire[] = [];

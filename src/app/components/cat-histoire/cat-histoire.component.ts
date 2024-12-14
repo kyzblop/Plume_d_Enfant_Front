@@ -3,10 +3,10 @@ import { CategorieHistoire } from '../../model/categorie-histoire';
 
 @Component({
   selector: 'app-cat-histoire',
-  standalone: true,
   imports: [],
   templateUrl: './cat-histoire.component.html',
   styleUrl: './cat-histoire.component.css',
+  standalone: true,
 })
 export class CatHistoireComponent {
   @Input()

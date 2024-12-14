@@ -19,7 +19,6 @@ declare var bootstrap: any;
 
 @Component({
   selector: 'app-nav',
-  standalone: true,
   imports: [
     MatButtonModule,
     CommonModule,
@@ -29,6 +28,7 @@ declare var bootstrap: any;
   ],
   templateUrl: './nav.component.html',
   styleUrl: './nav.component.css',
+  standalone: true,
 })
 export class NavComponent implements OnInit, OnDestroy {
   isLoggedIn: boolean = false;
@@ -61,7 +61,7 @@ export class NavComponent implements OnInit, OnDestroy {
       },
       error: (err) => {
         console.error('Connexion echouée : ' + err);
-        alert('Cet email est déjà utilisé')
+        alert('Cet email est déjà utilisé');
       },
     });
 
