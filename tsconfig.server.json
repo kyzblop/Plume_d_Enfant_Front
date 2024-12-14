@@ -1,0 +1,14 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./dist/out-tsc/server",
+    "module": "es2022",
+    "target": "ES2022",
+    "types": ["node"],
+    "skipLibCheck": true
+  },
+  "angularCompilerOptions": {
+    "entryModule": "./src/app/app.server.module#AppServerModule"
+  },
+  "exclude": ["test.ts", "**/*.spec.ts"]
+}
