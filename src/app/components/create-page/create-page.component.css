@@ -89,7 +89,7 @@ section {
   height: 100%;
   width: 0;
   background-color: rgb(152, 24, 237);
-  animation: 25s prog ease-in infinite;
+  animation: 60s prog ease-in infinite;
 }
 
 .chargement {
