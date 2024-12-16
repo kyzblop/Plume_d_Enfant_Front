@@ -46,7 +46,7 @@
               "namedChunks": false,
               "aot": true,
               "extractLicenses": true,
-              "baseHref": "/",
+              "baseHref": "/Plume_d_Enfant_Front/",
               "deployUrl": "/",
               "budgets": [
                 {
