@@ -15,38 +15,38 @@ export class CatHistoireComponent {
   getCategorieImageUrl() {
     switch (this.categorie) {
       case CategorieHistoire.Fantastique:
-        return '/assets/images/CategorieHistoire/icon_sorciere.png';
+        return '/Plume_d_Enfant_Front/assets/images/CategorieHistoire/icon_sorciere.png';
       case CategorieHistoire.FarWest:
-        return '/assets/images/CategorieHistoire/icon_farWest.png';
+        return '/Plume_d_Enfant_Front/assets/images/CategorieHistoire/icon_farWest.png';
       case CategorieHistoire.Medieval:
-        return '/assets/images/CategorieHistoire/icon_medieval.png';
+        return '/Plume_d_Enfant_Front/assets/images/CategorieHistoire/icon_medieval.png';
       case CategorieHistoire.Spacial:
-        return '/assets/images/CategorieHistoire/icon_spacial.png';
+        return '/Plume_d_Enfant_Front/assets/images/CategorieHistoire/icon_spacial.png';
       case CategorieHistoire.Futuriste:
-        return '/assets/images/CategorieHistoire/icon_robot.png';
+        return '/Plume_d_Enfant_Front/assets/images/CategorieHistoire/icon_robot.png';
       case CategorieHistoire.Pirate:
-        return '/assets/images/CategorieHistoire/icon_pirate.png';
+        return '/Plume_d_Enfant_Front/assets/images/CategorieHistoire/icon_pirate.png';
       default:
-        return '/assets/images/CategorieHistoire/icon_sorciere.png';
+        return '/Plume_d_Enfant_Front/assets/images/CategorieHistoire/icon_sorciere.png';
     }
   }
 
   getCategorieTexte() {
     switch (this.categorie) {
       case CategorieHistoire.Fantastique:
-        return 'Fantastique';
+        return 'Conte de fée';
       case CategorieHistoire.FarWest:
-        return 'Far-West';
+        return 'Cowboy';
       case CategorieHistoire.Medieval:
-        return 'Médieval';
+        return 'Chevalier';
       case CategorieHistoire.Spacial:
-        return 'Spacial';
+        return 'Espace';
       case CategorieHistoire.Futuriste:
-        return 'Futuriste';
+        return 'Future';
       case CategorieHistoire.Pirate:
         return 'Pirate';
       default:
-        return 'Fantastique';
+        return 'Conte de fée';
     }
   }
 }
