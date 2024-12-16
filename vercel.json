@@ -2,8 +2,14 @@
   "version": 2,
   "builds": [
     {
-      "src": "dist/plumed-enfant-front/**",
+      "src": "dist/plumed-enfant-front/**/*",
       "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
     }
   ]
 }
