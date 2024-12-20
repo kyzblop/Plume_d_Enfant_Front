@@ -27,12 +27,10 @@ export class StoryGeneratedPageComponent implements OnInit {
     0,
     this.utilisateur
   );
+
   idHistoire: string | null = null;
 
   promesseGetHistoire!: Promise<string>;
-
-  catHistoire: CategorieHistoire = CategorieHistoire.Spacial;
-  catAge: CategorieAge = CategorieAge.DeuxTroisAns;
 
   constructor(
     private histoireService: HistoireService,
@@ -45,8 +43,6 @@ export class StoryGeneratedPageComponent implements OnInit {
     this.promesseGetHistoire = new Promise((resolve, reject) => {
       try {
         this.getHistoire();
-        this.catHistoire = this.histoire.categorieHistoire;
-        this.catAge = this.histoire.categorieAge;
         resolve("L'histoire est bien récupérée");
       } catch (error) {
         reject("L'histoire n'est pas récupérée");

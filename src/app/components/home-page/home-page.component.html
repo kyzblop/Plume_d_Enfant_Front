@@ -1,9 +1,15 @@
+@if (isLoggedIn) {
 <button
   class="container_button btn btn-success btn-sm d-block mx-auto"
   routerLink="/create"
 >
   Créer mon histoire
 </button>
+
+} @else {
+<br />
+<p>Vous devez être connecté pour créer une histoire</p>
+}
 
 <!-- container 1 -->
 
@@ -19,7 +25,7 @@
   </div>
 </div>
 
-@if (isConnected) {
+@if (isLoggedIn) {
 <!-- container 2 -->
 <!-- 
 <div class="container_stories">

@@ -90,4 +90,6 @@ export class NavComponent implements OnInit, OnDestroy {
   goProfil() {
     this.router.navigate(['profil']);
   }
+
+  
 }

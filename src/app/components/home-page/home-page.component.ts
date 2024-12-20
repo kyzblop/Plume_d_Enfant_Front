@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CardComponent } from '../card/card.component';
 import { Router, RouterLink } from '@angular/router';
 import { Histoire } from '../../model/histoire';
 import { HistoireService } from '../../service/histoire.service';
 import { AuthService } from '../../service/auth.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-home-page',
@@ -12,21 +13,29 @@ import { AuthService } from '../../service/auth.service';
   styleUrl: './home-page.component.css',
   standalone: true,
 })
-export class HomePageComponent {
+export class HomePageComponent implements OnInit {
   histoires: Histoire[] = [];
-  isConnected: boolean;
+  isLoggedIn: boolean = false;
   dernieresLectures: Histoire[] = [];
+
+  private authSubscription: Subscription | null = null;
 
   constructor(
     private histoireService: HistoireService,
     private authService: AuthService,
     private router: Router
-  ) {
-    histoireService.getAllHistoire().subscribe((histoires) => {
+  ) {}
+
+  ngOnInit(): void {
+    this.histoireService.getAllHistoire().subscribe((histoires) => {
       this.histoires = histoires;
     });
 
-    this.isConnected = authService.isAuthenticated();
+    this.authSubscription = this.authService.isAuthObservable.subscribe(
+      (authStatut) => {
+        this.isLoggedIn = authStatut;
+      }
+    );
   }
 
   goHistoire(id: number) {

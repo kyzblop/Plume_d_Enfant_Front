@@ -9,51 +9,63 @@
       />
     </a>
 
-    <!-- Liens principaux -->
+    <!-- bouton menu -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#btn-sous-menu"
+      aria-controls="btn-sous-menu"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-    <div>
+    <div class="collapse navbar-collapse" id="btn-sous-menu">
       <ul class="navbar-nav">
-        <li class="nav-item me-5">
+        <!-- Liens principaux -->
+        @if (isLoggedIn) {
+        <li class="nav-item">
           <a class="nav-link text-white" routerLink="/create"
             >Créer une histoire</a
           >
         </li>
+        }
 
         <li class="nav-item">
           <a class="nav-link text-white" routerLink="/stories"
             >Chercher une histoire</a
           >
         </li>
-      </ul>
-    </div>
 
-    <!-- Boutons pour S'inscrire et Se connecter -->
-    <div class="d-flex">
-      @if (isLoggedIn) {
-      <button class="btn me-4 boutton-navbar" (click)="goProfil()">
-        Mon profil
-        <img
-          src="/Plume_d_Enfant_Front/assets/images/image_portrait_garcon_zoom.jpg"
-          alt="Avatar"
-          class="profile_avatar"
-        />
-      </button>
-      } @else {
-      <button
-        class="btn me-4 boutton-navbar"
-        data-bs-toggle="modal"
-        data-bs-target="#signupModal"
-      >
-        S'inscrire
-      </button>
-      <button
-        class="btn me-4 boutton-navbar"
-        data-bs-toggle="modal"
-        data-bs-target="#loginModal"
-      >
-        Se connecter
-      </button>
-      }
+        <!-- Boutons pour S'inscrire et Se connecter -->
+        @if (isLoggedIn) {
+        <button class="btn boutton-navbar nav-item" (click)="goProfil()">
+          Mon profil
+          <img
+            src="/Plume_d_Enfant_Front/assets/images/image_portrait_garcon_zoom.jpg"
+            alt="Avatar"
+            class="profile_avatar"
+          />
+        </button>
+        } @else {
+        <button
+          class="btn boutton-navbar nav-item"
+          data-bs-toggle="modal"
+          data-bs-target="#signupModal"
+        >
+          S'inscrire
+        </button>
+        <button
+          class="btn boutton-navbar nav-item"
+          data-bs-toggle="modal"
+          data-bs-target="#loginModal"
+        >
+          Se connecter
+        </button>
+        }
+      </ul>
     </div>
   </div>
 </nav>
