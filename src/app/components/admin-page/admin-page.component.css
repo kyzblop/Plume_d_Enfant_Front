@@ -1,29 +1,97 @@
+.container_profil {
+  display: flex;
+  justify-content: space-between;
+  padding: 50px;
+}
+
+.profil_config,
+h4 {
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.profil_config {
+  color: white;
+  margin: 50px;
+  padding: 20px;
+  background-color: rgba(240, 248, 255, 0.179);
+  backdrop-filter: blur(4px);
+  border: rgb(249, 242, 242) solid 1px;
+  border-radius: 25px;
+}
+
+.right_profil {
+  color: red;
+}
+
+@media (max-width: 1023px) {
+  p {
+    font-size: 0.8rem;
+  }
+
+  .right_profil,
+  .left_profil {
+    margin: 0 auto;
+  }
+
+  .container_profil {
+    display: flex;
+    justify-content: space-between;
+    padding: 0px;
+  }
+
+  .profil_config {
+    padding: 5px;
+    margin: 30px;
+  }
+}
+
+@media (max-width: 767px) {
+  .left_profil {
+    border-right: solid 1px whitesmoke;
+    margin: 0 auto;
+    padding-right: 10px;
+  }
+
+  .right_profil {
+    margin: 0 auto;
+  }
+
+  .p_first_child {
+    padding-bottom: 10px;
+    border-bottom: solid 1px whitesmoke;
+  }
+}
+
 .list_stories,
 .list_users {
-    text-align: center;
-    background-color: rgba(66, 53, 182, 0.607);
-    color: rgba(245, 245, 245, 0.666);
-    width: 80%;
-    margin: auto;
+  text-align: center;
+  background-color: rgba(66, 53, 182, 0.607);
+  color: rgba(245, 245, 245, 0.666);
+  width: 80%;
+  margin: auto;
 }
 
 .container_admin_stories,
 .container_admin_users {
-    border: solid 1px white;
+    color: white;
+    margin: 50px;
+    padding: 20px;
+    background-color: rgba(240, 248, 255, 0.179);
+    backdrop-filter: blur(4px);
+    border: rgb(249, 242, 242) solid 1px;
     border-radius: 25px;
-    padding: 40px;
-    margin: 20px;
 }
 
-th[scope='col'] {
-    background-color: #311baf;
+th[scope="col"] {
+  background-color: #311baf;
 }
 
 td {
-    border-bottom: 1px solid rgba(207, 201, 201, 0.442);
+  border-bottom: 1px solid rgba(207, 201, 201, 0.442);
 }
 
 caption {
-    color: rgb(217, 206, 206);
-    padding-bottom: 20px;
+  color: rgb(217, 206, 206);
+  padding-bottom: 20px;
 }

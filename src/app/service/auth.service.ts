@@ -10,8 +10,8 @@ import { Utilisateur } from '../model/utilisateur';
   providedIn: 'root',
 })
 export class AuthService {
-  // readonly apiUrl = 'https://plumedenfant-production.up.railway.app';
-  readonly apiUrl = 'http://localhost:8080';
+  readonly apiUrl = 'https://plumedenfant-production.up.railway.app';
+  // readonly apiUrl = 'http://localhost:8080';
 
   private isAuthSubject = new BehaviorSubject<boolean>(this.isAuthenticated());
   public isAuthObservable = this.isAuthSubject.asObservable();

@@ -32,6 +32,7 @@ declare var bootstrap: any;
 })
 export class NavComponent implements OnInit, OnDestroy {
   isLoggedIn: boolean = false;
+  isAdmin: boolean = false;
   private authSubscription: Subscription | null = null;
 
   loginDto: LoginDto = { email: '', mdp: '' };
@@ -88,8 +89,10 @@ export class NavComponent implements OnInit, OnDestroy {
   }
 
   goProfil() {
-    this.router.navigate(['profil']);
+    if (this.authService.getUserRoles().includes('ADMIN')) {
+      this.router.navigate(['admin']);
+    } else {
+      this.router.navigate(['profil']);
+    }
   }
-
-  
 }

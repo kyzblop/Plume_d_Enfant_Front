@@ -36,3 +36,7 @@ p {
 a {
   text-decoration: none;
 }
+
+.small-title {
+  font-size: medium;
+}
