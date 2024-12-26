@@ -42,6 +42,8 @@ h4 {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+
+  gap: 50px;
 }
 
 .search_input_wrapper input {
@@ -135,8 +137,19 @@ img {
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 750px) {
   .container_filter {
     width: 95%;
+  }
+
+  .container_stories {
+    margin: 1%;
+    padding: 0;
+  }
+
+  .container_stories_card {
+    width: 100%;
+
+    justify-content: center;
   }
 }

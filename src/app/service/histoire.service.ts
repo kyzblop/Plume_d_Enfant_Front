@@ -10,7 +10,7 @@ import { AuthService } from './auth.service';
 })
 export class HistoireService {
   readonly apiUrl = 'https://plumedenfant-production.up.railway.app';
-  // readonly apiUrl = 'http://localhost:8080';
+  //readonly apiUrl = 'http://localhost:8080';
 
   constructor(public http: HttpClient) {}
 
