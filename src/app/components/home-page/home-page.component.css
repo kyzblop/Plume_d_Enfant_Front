@@ -43,7 +43,7 @@ a {
   font-size: medium;
 }
 
-@media (max-width: 750px) {
+@media (max-width: 767px) {
   .container_stories {
     margin: 1%;
     padding: 0;

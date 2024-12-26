@@ -137,7 +137,7 @@ img {
   }
 }
 
-@media (max-width: 750px) {
+@media (max-width: 767px) {
   .container_filter {
     width: 95%;
   }
