@@ -16,12 +16,14 @@
     <section class="left_filter">
       <p class="title_choice">Sélectionner les catégories</p>
       <div class="theme_choice">
-        <div class="group_choice">
+        <div class="group_choice checkbox-wrapper-42">
           <input
             class="checkbox_input"
             type="checkbox"
+            id="cbx-42-pirate"
             (change)="onCategorieHistoireChange(categoriePirate, $event)"
           />
+          <label class="cbx" for="cbx-42-pirate"></label>
           <img
             src="assets/images/CategorieHistoire/icon_pirate.png"
             alt="icon_theme_pirate"
@@ -29,12 +31,14 @@
           <p class="checkbox_title">Pirate</p>
         </div>
 
-        <div class="group_choice">
+        <div class="group_choice checkbox-wrapper-42">
           <input
             class="checkbox_input"
             type="checkbox"
+            id="cbx-42-farwest"
             (change)="onCategorieHistoireChange(categorieFarWest, $event)"
           />
+          <label class="cbx" for="cbx-42-farwest"></label>
           <img
             src="assets/images/CategorieHistoire/icon_farWest.png"
             alt="icon_theme_farWest"
@@ -42,12 +46,14 @@
           <p class="checkbox_title">Cowboy</p>
         </div>
 
-        <div class="group_choice">
+        <div class="group_choice checkbox-wrapper-42">
           <input
             class="checkbox_input"
             type="checkbox"
+            id="cbx-42-spacial"
             (change)="onCategorieHistoireChange(categorieSpacial, $event)"
           />
+          <label class="cbx" for="cbx-42-spacial"></label>
           <img
             src="assets/images/CategorieHistoire/icon_spacial.png"
             alt="icon_theme_spacial"
@@ -55,12 +61,14 @@
           <p class="checkbox_title">Espace</p>
         </div>
 
-        <div class="group_choice">
+        <div class="group_choice checkbox-wrapper-42">
           <input
             class="checkbox_input"
             type="checkbox"
+            id="cbx-42-fantastique"
             (change)="onCategorieHistoireChange(categorieFantastique, $event)"
           />
+          <label class="cbx" for="cbx-42-fantastique"></label>
           <img
             src="assets/images/CategorieHistoire/icon_sorciere.png"
             alt="icon_theme_fantastique"
@@ -68,12 +76,14 @@
           <p class="checkbox_title">Conte de fée</p>
         </div>
 
-        <div class="group_choice">
+        <div class="group_choice checkbox-wrapper-42">
           <input
             class="checkbox_input"
             type="checkbox"
+            id="cbx-42-medieval"
             (change)="onCategorieHistoireChange(categorieMedieval, $event)"
           />
+          <label class="cbx" for="cbx-42-medieval"></label>
           <img
             src="assets/images/CategorieHistoire/icon_medieval.png"
             alt="icon_theme_medieval"
@@ -81,12 +91,14 @@
           <p class="checkbox_title">Chevalier</p>
         </div>
 
-        <div class="group_choice">
+        <div class="group_choice checkbox-wrapper-42">
           <input
             class="checkbox_input"
             type="checkbox"
+            id="cbx-42-futuriste"
             (change)="onCategorieHistoireChange(categorieFuturiste, $event)"
           />
+          <label class="cbx" for="cbx-42-futuriste"></label>
           <img
             src="assets/images/CategorieHistoire/icon_robot.png"
             alt="icon_theme_futuriste"
@@ -99,52 +111,62 @@
     <section>
       <p class="title_choice">Sélectionner les tranches d'âge</p>
       <div class="age_choice">
-        <div class="group_choice">
+        <div class="group_choice checkbox-wrapper-42">
           <input
             class="checkbox_input"
             type="checkbox"
+            id="cbx-42-2-3-ans"
             (change)="onCategorieAgeChange(categorieDeuxTroisAns, $event)"
           />
+          <label class="cbx" for="cbx-42-2-3-ans"></label>
           <i class="fa-solid fa-circle" style="color: rgb(13, 216, 216)"></i>
           <p class="checkbox_title">2-3 ans</p>
         </div>
 
-        <div class="group_choice">
+        <div class="group_choice checkbox-wrapper-42">
           <input
             class="checkbox_input"
             type="checkbox"
             (change)="onCategorieAgeChange(categorieSixSeptAns, $event)"
+            id="cbx-42-6-7-ans"
           />
+          <label class="cbx" for="cbx-42-6-7-ans"></label>
           <i class="fa-solid fa-circle" style="color: rgb(207, 220, 19)"></i>
           <p class="checkbox_title">6-7 ans</p>
         </div>
 
-        <div class="group_choice">
+        <div class="group_choice checkbox-wrapper-42">
           <input
             class="checkbox_input"
             type="checkbox"
+            id="cbx-42-10-11-ans"
             (change)="onCategorieAgeChange(categorieDixOnzeAns, $event)"
           />
+          <label class="cbx" for="cbx-42-10-11-ans"></label>
           <i class="fa-solid fa-circle" style="color: rgb(201, 23, 23)"></i>
           <p class="checkbox_title">10-11 ans</p>
         </div>
 
-        <div class="group_choice">
+        <div class="group_choice checkbox-wrapper-42">
           <input
             class="checkbox_input"
             type="checkbox"
+            id="cbx-42-4-5-ans"
             (change)="onCategorieAgeChange(categorieQuatreCinqAns, $event)"
           />
+          <label class="cbx" for="cbx-42-4-5-ans"></label>
           <i class="fa-solid fa-circle" style="color: rgb(24, 223, 28)"></i>
           <p class="checkbox_title">4-5 ans</p>
         </div>
 
-        <div class="group_choice">
+        <div class="group_choice checkbox-wrapper-42">
           <input
             class="checkbox_input"
             type="checkbox"
+            id="cbx-42-8-9-ans"
             (change)="onCategorieAgeChange(categorieHuitNeufAns, $event)"
           />
+          <label class="cbx" for="cbx-42-8-9-ans"></label>
           <i class="fa-solid fa-circle" style="color: rgb(220, 133, 19)"></i>
           <p class="checkbox_title">8-9 ans</p>
         </div>
@@ -173,3 +195,7 @@
   </div>
   }
 </div>
+
+<style>
+  
+</style>
