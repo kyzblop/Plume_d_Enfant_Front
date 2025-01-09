@@ -22,16 +22,25 @@
 
     <div class="react">
       <div class="react_block">
-        <i class="fa-solid fa-heart" style="color: #db0f0f"></i>
-        <p>J'aime cette histoire</p>
+        @if (isLiked) {
+        <a (click)="changeLike()">
+          <i class="fa-solid fa-heart" style="color: #db0f0f"></i
+        ></a>
+
+        } @else {
+        <a (click)="changeLike()">
+          <i class="fa-regular fa-heart" style="color: #db0f0f"></i
+        ></a>
+        }
+        <!-- <p>J'aime cette histoire</p> -->
       </div>
       <div class="react_block">
         <i class="fa-solid fa-download"></i>
-        <p>Télécharger cette histoire</p>
+        <!-- <p>Télécharger cette histoire</p> -->
       </div>
       <div class="react_block">
         <i class="fa-solid fa-share"></i>
-        <p>Partager cette histoire</p>
+        <!-- <p>Partager cette histoire</p> -->
       </div>
     </div>
   </div>

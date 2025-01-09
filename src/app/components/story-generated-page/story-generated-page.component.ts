@@ -7,6 +7,7 @@ import { Utilisateur } from '../../model/utilisateur';
 import { ActivatedRoute } from '@angular/router';
 import { CatAgeComponent } from '../cat-age/cat-age.component';
 import { CatHistoireComponent } from '../cat-histoire/cat-histoire.component';
+import { ListKeyManager } from '@angular/cdk/a11y';
 
 @Component({
   selector: 'app-story-generated-page',
@@ -29,6 +30,8 @@ export class StoryGeneratedPageComponent implements OnInit {
   );
 
   idHistoire: string | null = null;
+
+  isLiked: boolean = false;
 
   promesseGetHistoire!: Promise<string>;
 
@@ -62,5 +65,9 @@ export class StoryGeneratedPageComponent implements OnInit {
 
   getBackGround() {
     return `background-image: url(${this.histoire.urlImage});`;
+  }
+
+  changeLike() {
+    this.isLiked = !this.isLiked;
   }
 }
