@@ -20,6 +20,21 @@ p {
   right: 10px;
 }
 
+.fa-heart {
+  padding-left: 2px;
+}
+
+.fa-regular {
+  background-color: rgb(39, 39, 39);
+  background-size: cover;
+  border-radius: 50%;
+
+  width: 22px;
+  height: 22px;
+
+  padding: 3px 0 0 2px;
+}
+
 .card {
   /* margin: 30px; */
   /* border: rgb(234, 225, 225) 1px solid; */
