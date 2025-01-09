@@ -18,6 +18,8 @@ export class HomePageComponent implements OnInit {
   isLoggedIn: boolean = false;
   dernieresLectures: Histoire[] = [];
 
+  isLoad: boolean = false;
+
   private authSubscription: Subscription | null = null;
 
   constructor(
@@ -29,6 +31,7 @@ export class HomePageComponent implements OnInit {
   ngOnInit(): void {
     this.histoireService.getAllHistoire().subscribe((histoires) => {
       this.histoires = histoires;
+      this.isLoad = true;
     });
 
     this.authSubscription = this.authService.isAuthObservable.subscribe(

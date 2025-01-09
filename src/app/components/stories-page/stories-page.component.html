@@ -152,6 +152,12 @@
     </section>
   </div>
 
+  @if (!isLoad) {
+  <div class="d-flex justify-content-center row">
+    <div class="spinner-border" role="status"></div>
+    <p>Chargement des histoires</p>
+  </div>
+  } @else {
   <div class="container_stories">
     <h4>Liste des histoires</h4>
 
@@ -165,4 +171,5 @@
       }
     </div>
   </div>
+  }
 </div>

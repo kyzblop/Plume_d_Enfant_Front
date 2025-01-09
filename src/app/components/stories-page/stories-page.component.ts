@@ -35,6 +35,7 @@ export class StoriesPageComponent {
   histoiresFiltrees: Histoire[] = [];
 
   isFiltresHidden: boolean = true;
+  isLoad: boolean = false;
 
   motRecherche: string = '';
 
@@ -44,6 +45,7 @@ export class StoriesPageComponent {
   ) {
     histoireService.getAllHistoire().subscribe((histoires) => {
       this.histoires = histoires;
+      this.isLoad = true;
     });
   }
 

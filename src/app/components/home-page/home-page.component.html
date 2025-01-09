@@ -9,10 +9,14 @@
 } @else {
 <br />
 <p class="small-title">Vous devez être connecté pour créer une histoire</p>
-}
+} @if (!isLoad) {
+<div class="d-flex justify-content-center row">
+  <div class="spinner-border" role="status"></div>
+  <p>Chargement des histoires</p>
+</div>
+} @else {
 
 <!-- container 1 -->
-
 <div class="container_stories">
   <p>Nos plus belles histoires</p>
 
@@ -25,7 +29,7 @@
   </div>
 </div>
 
-@if (isLoggedIn) {
+} @if (isLoggedIn) {
 <!-- container 2 -->
 <!-- 
 <div class="container_stories">
