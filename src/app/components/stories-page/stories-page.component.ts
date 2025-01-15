@@ -43,7 +43,7 @@ export class StoriesPageComponent {
     private histoireService: HistoireService,
     private router: Router
   ) {
-    histoireService.getAllHistoire().subscribe((histoires) => {
+    histoireService.getAllHistoireSortedByLike().subscribe((histoires) => {
       this.histoires = histoires;
       this.isLoad = true;
     });

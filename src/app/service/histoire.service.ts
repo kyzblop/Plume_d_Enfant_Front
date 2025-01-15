@@ -9,8 +9,8 @@ import { AuthService } from './auth.service';
   providedIn: 'root',
 })
 export class HistoireService {
-  readonly apiUrl = 'https://plumedenfant-production.up.railway.app';
-  //readonly apiUrl = 'http://localhost:8080';
+  //readonly apiUrl = 'https://plumedenfant-production.up.railway.app';
+  readonly apiUrl = 'http://localhost:8080';
 
   constructor(public http: HttpClient) {}
 
@@ -19,9 +19,14 @@ export class HistoireService {
     return this.http.get<Histoire>(`${this.apiUrl}/histoires/${idHistoire}`);
   }
 
-  // Méthode pour récupérer toutes les histoires
-  getAllHistoire(): Observable<Histoire[]> {
+  // Méthode pour récupérer toutes les histoires triée par id
+  getAllHistoireSortedById(): Observable<Histoire[]> {
     return this.http.get<Histoire[]>(`${this.apiUrl}/histoires`);
+  }
+
+  // Méthode pour récupérer toutes les histoires triée par like
+  getAllHistoireSortedByLike(): Observable<Histoire[]> {
+    return this.http.get<Histoire[]>(`${this.apiUrl}/histoires/byLike`);
   }
 
   // Méthode pour récupérer la dernière histoire
@@ -80,9 +85,20 @@ export class HistoireService {
 
   // Méthode pour modifier une histoire
   updateHistoire(histoire: Histoire, idHistoire: number): Observable<string> {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      return throwError('Token manquant');
+    }
+    const headers = new HttpHeaders()
+      .set('Authorization', `Bearer ${token}`)
+      .set('Content-Type', 'application/json');
+
     return this.http.patch<string>(
       `${this.apiUrl}/histoires/modification/${idHistoire}`,
-      histoire
+      histoire,
+      {
+        headers: headers,
+      }
     );
   }
 

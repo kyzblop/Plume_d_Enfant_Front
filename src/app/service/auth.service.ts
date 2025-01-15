@@ -5,13 +5,14 @@ import { AuthResponseDto } from '../model/auth-response-dto';
 import { LoginDto } from '../model/login-dto';
 import { InscriptionDto } from '../model/inscription-dto';
 import { Utilisateur } from '../model/utilisateur';
+import { Histoire } from '../model/histoire';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  readonly apiUrl = 'https://plumedenfant-production.up.railway.app';
-  // readonly apiUrl = 'http://localhost:8080';
+  //readonly apiUrl = 'https://plumedenfant-production.up.railway.app';
+  readonly apiUrl = 'http://localhost:8080';
 
   private isAuthSubject = new BehaviorSubject<boolean>(this.isAuthenticated());
   public isAuthObservable = this.isAuthSubject.asObservable();

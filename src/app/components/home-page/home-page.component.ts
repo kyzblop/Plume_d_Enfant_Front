@@ -29,7 +29,7 @@ export class HomePageComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.histoireService.getAllHistoire().subscribe((histoires) => {
+    this.histoireService.getAllHistoireSortedByLike().subscribe((histoires) => {
       this.histoires = histoires;
       this.isLoad = true;
     });

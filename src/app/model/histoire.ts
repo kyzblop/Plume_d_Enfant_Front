@@ -4,12 +4,12 @@ import { Utilisateur } from './utilisateur';
 export class Histoire {
   constructor(
     public id: number,
-    public titre: string,
-    public corps: string,
+    public titre: string | null,
+    public corps: string | null,
     public categorieHistoire: CategorieHistoire,
     public categorieAge: CategorieAge,
-    public urlImage: string,
-    public nbLike: number,
+    public urlImage: string | null,
+    public nbLike: number | null,
     public createur: Utilisateur
   ) {}
 }

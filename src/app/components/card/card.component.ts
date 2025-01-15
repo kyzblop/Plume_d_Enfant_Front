@@ -14,7 +14,14 @@ import { CatAgeComponent } from '../cat-age/cat-age.component';
   standalone: true,
 })
 export class CardComponent {
-  createur: Utilisateur = new Utilisateur(1, 'mail@mail.com', 'truc', [], []);
+  createur: Utilisateur = new Utilisateur(
+    1,
+    'mail@mail.com',
+    'truc',
+    [],
+    [],
+    []
+  );
 
   @Input()
   histoire: Histoire = new Histoire(

@@ -22,7 +22,7 @@
 
     <div class="react">
       <div class="react_block">
-        @if (isLiked) {
+        @if (isUserLogin) { @if (isLiked) {
         <a (click)="changeLike()">
           <i class="fa-solid fa-heart" style="color: #db0f0f"></i
         ></a>
@@ -33,6 +33,7 @@
         ></a>
         }
         <!-- <p>J'aime cette histoire</p> -->
+        }
       </div>
       <div class="react_block">
         <i class="fa-solid fa-download"></i>

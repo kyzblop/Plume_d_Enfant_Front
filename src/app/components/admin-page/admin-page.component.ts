@@ -33,7 +33,7 @@ export class AdminPageComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.histoireService.getAllHistoire().subscribe((histoires) => {
+    this.histoireService.getAllHistoireSortedById().subscribe((histoires) => {
       this.listHistoire = histoires;
     });
 
