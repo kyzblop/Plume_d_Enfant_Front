@@ -9,6 +9,7 @@ import { CatAgeComponent } from '../cat-age/cat-age.component';
 import { CatHistoireComponent } from '../cat-histoire/cat-histoire.component';
 import { AuthService } from '../../service/auth.service';
 import { UtilisateurService } from '../../service/utilisateur.service';
+import { linkSync } from 'fs';
 
 @Component({
   selector: 'app-story-generated-page',
@@ -32,6 +33,7 @@ export class StoryGeneratedPageComponent implements OnInit {
 
   listLike: Array<Histoire> | null = [];
   newListLike: Array<Histoire> | null = [];
+  listVues: Array<Histoire> | null = [];
 
   isUserLogin: boolean = false;
   idHistoire: number | null = 0;
@@ -79,6 +81,7 @@ export class StoryGeneratedPageComponent implements OnInit {
               .subscribe((utilisateur) => {
                 this.listLike = utilisateur.listeLike;
 
+                // Remplissage du bouton like en fct de si l'histoire a déjà été likée par l'utilisateur ou non
                 if (
                   this.listLike != null &&
                   this.listLike.find(
@@ -86,10 +89,37 @@ export class StoryGeneratedPageComponent implements OnInit {
                   )
                 ) {
                   this.isLiked = true;
-                  console.log('cette histoire est likée');
                 } else {
                   this.isLiked = false;
-                  console.log('cette histoire est pas likée');
+                }
+
+                // Ajout de l'histoire à la liste des histoires vues si elle n'y est pas encore
+                if (
+                  !utilisateur.listeVue?.find(
+                    (histoire) => histoire.id === this.histoire.id
+                  )
+                ) {
+                  this.listVues = utilisateur.listeVue;
+
+                  if (this.listVues != null) {
+                    this.listVues.push(histoire);
+                  }
+
+                  console.log(this.listVues);
+
+                  this.utilisateurService
+                    .updateUtilisateur(
+                      new Utilisateur(
+                        this.authService.getUserId(),
+                        null,
+                        null,
+                        null,
+                        null,
+                        this.listVues
+                      ),
+                      this.authService.getUserId()
+                    )
+                    .subscribe();
                 }
               });
           }
@@ -110,7 +140,6 @@ export class StoryGeneratedPageComponent implements OnInit {
       }
 
       this.nbLike++;
-      console.log('like:' + this.nbLike);
     } else {
       // Si le bouton est décoché, il faut retirer l'histoire de la liste des histoires likées de l'utilisateur
       if (this.listLike != null) {
@@ -121,9 +150,6 @@ export class StoryGeneratedPageComponent implements OnInit {
       }
 
       this.nbLike--;
-
-      console.log('dislike:' + this.nbLike);
-      console.log(this.listLike);
     }
 
     this.utilisateurService
