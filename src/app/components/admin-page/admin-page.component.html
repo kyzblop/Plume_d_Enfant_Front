@@ -18,7 +18,7 @@
     <thead>
       <tr class="tr">
         <th scope="col">ID histoire</th>
-        <th scope="col">ID créateur</th>
+        <!-- <th scope="col">ID créateur</th> -->
         <th scope="col">Titre</th>
         <th scope="col">Nombre likes</th>
         <th scope="col">Modifier</th>
@@ -29,7 +29,7 @@
       @for (histoire of listHistoire; track $index) {
       <tr class="tr">
         <td>{{ histoire.id }}</td>
-        <td>{{ histoire.createur.id }}</td>
+        <!-- <td>{{ histoire.createur.id }}</td> -->
         <td>{{ histoire.titre }}</td>
         <td>{{ histoire.nbLike }}</td>
         <td><i class="fa-solid fa-pen-nib" style="color: #ede7ec"></i></td>

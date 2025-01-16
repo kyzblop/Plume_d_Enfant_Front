@@ -40,7 +40,6 @@ export class StoryGeneratedPageComponent implements OnInit {
   idHistoire: number | null = 0;
   isLiked: boolean = false;
   isFavori: boolean = false;
-  nbLike: number = 0;
 
   promesseGetHistoire!: Promise<string>;
 
@@ -74,7 +73,6 @@ export class StoryGeneratedPageComponent implements OnInit {
           this.histoire = histoire;
 
           if (this.histoire.nbLike != null) {
-            this.nbLike = this.histoire.nbLike;
           }
           // Si l'utilisateur est connecté, le bouton like apparait coché ou non en fonction de si l'histoire a déjà été likée
           if (this.isUserLogin) {
@@ -146,13 +144,12 @@ export class StoryGeneratedPageComponent implements OnInit {
   // Lors du clique sur le bouton like
   changeLike() {
     this.isLiked = !this.isLiked;
+
     if (this.isLiked) {
       // Si le boutin like est coché, il faut ajouter l'histoire dans la liste de like de l'utilisateur
       if (this.listLike != null) {
         this.listLike.push(this.histoire);
       }
-
-      this.nbLike++;
     } else {
       // Si le bouton est décoché, il faut retirer l'histoire de la liste des histoires likées de l'utilisateur
       if (this.listLike != null) {
@@ -161,8 +158,6 @@ export class StoryGeneratedPageComponent implements OnInit {
         );
         this.listLike = this.newListLike;
       }
-
-      this.nbLike--;
     }
 
     this.utilisateurService
@@ -177,30 +172,23 @@ export class StoryGeneratedPageComponent implements OnInit {
         ),
         this.authService.getUserId()
       )
-      .subscribe();
-
-    this.histoireService
-      .updateHistoire(
-        new Histoire(
-          this.idHistoire ? this.idHistoire : 0,
-          null,
-          null,
-          CategorieHistoire.Fantastique, // il s'agit d'une categorie par défaut, cela ne change pas la categorie d'origine
-          CategorieAge.DeuxTroisAns, // il s'agit d'une categorie par défaut, cela ne change pas la categorie d'origine
-          null,
-          this.nbLike,
-          new Utilisateur(
-            this.authService.getUserId(),
-            null,
-            null,
-            this.listLike,
-            null,
-            null
-          ) // il s'agit d'un utilisateur par défaut, cela ne change pas le créateur d'origine
-        ),
-        this.idHistoire ? this.idHistoire : 0
-      )
-      .subscribe();
+      .subscribe(() => {
+        this.histoireService
+          .updateHistoire(
+            new Histoire(
+              this.idHistoire ? this.idHistoire : 0,
+              null,
+              null,
+              CategorieHistoire.Fantastique, // il s'agit d'une categorie par défaut, cela ne change pas la categorie d'origine
+              CategorieAge.DeuxTroisAns, // il s'agit d'une categorie par défaut, cela ne change pas la categorie d'origine
+              null,
+              null,
+              new Utilisateur(1, null, null, null, null, null) // il s'agit d'un utilisateur par défaut, cela ne change pas le créateur d'origine
+            ),
+            this.idHistoire ? this.idHistoire : 0
+          )
+          .subscribe();
+      });
   }
 
   // Lors du clique sur le bouton favori

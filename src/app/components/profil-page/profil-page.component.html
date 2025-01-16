@@ -21,19 +21,21 @@
     }
   </div>
 </section>
-<!-- <section class="container_stories_favorite">
+
+<section class="container_stories_favorite">
   <h4>Vos histoires préférées</h4>
   <div class="container_stories_card">
-    <app-card></app-card>
-    <app-card></app-card>
-    <app-card></app-card>
+    @for (histoire of listFavori; track $index) {
+    <app-card [histoire]="histoire"></app-card>
+    }
   </div>
 </section>
+
 <section class="container_stories_like">
   <h4>Vos histoires aimées</h4>
   <div class="container_stories_card">
-    <app-card></app-card>
-    <app-card></app-card>
-    <app-card></app-card>
+    @for (histoire of listLike; track $index) {
+    <app-card [histoire]="histoire"></app-card>
+    }
   </div>
-</section> -->
+</section>
