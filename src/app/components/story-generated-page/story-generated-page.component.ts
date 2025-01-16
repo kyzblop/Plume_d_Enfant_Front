@@ -9,7 +9,6 @@ import { CatAgeComponent } from '../cat-age/cat-age.component';
 import { CatHistoireComponent } from '../cat-histoire/cat-histoire.component';
 import { AuthService } from '../../service/auth.service';
 import { UtilisateurService } from '../../service/utilisateur.service';
-import { linkSync } from 'fs';
 
 @Component({
   selector: 'app-story-generated-page',
@@ -34,10 +33,13 @@ export class StoryGeneratedPageComponent implements OnInit {
   listLike: Array<Histoire> | null = [];
   newListLike: Array<Histoire> | null = [];
   listVues: Array<Histoire> | null = [];
+  listFavori: Array<Histoire> | null = [];
+  newListFavori: Array<Histoire> | null = [];
 
   isUserLogin: boolean = false;
   idHistoire: number | null = 0;
   isLiked: boolean = false;
+  isFavori: boolean = false;
   nbLike: number = 0;
 
   promesseGetHistoire!: Promise<string>;
@@ -80,6 +82,7 @@ export class StoryGeneratedPageComponent implements OnInit {
               .getUtilisateurById(this.authService.getUserId())
               .subscribe((utilisateur) => {
                 this.listLike = utilisateur.listeLike;
+                this.listFavori = utilisateur.listeFavori;
 
                 // Remplissage du bouton like en fct de si l'histoire a déjà été likée par l'utilisateur ou non
                 if (
@@ -121,6 +124,15 @@ export class StoryGeneratedPageComponent implements OnInit {
                     )
                     .subscribe();
                 }
+
+                // Verification si l'histoire est en favori
+                if (
+                  this.listFavori?.some(
+                    (histoire) => histoire.id === this.idHistoire
+                  )
+                ) {
+                  this.isFavori = true;
+                }
               });
           }
         });
@@ -131,6 +143,7 @@ export class StoryGeneratedPageComponent implements OnInit {
     return `background-image: url(${this.histoire.urlImage});`;
   }
 
+  // Lors du clique sur le bouton like
   changeLike() {
     this.isLiked = !this.isLiked;
     if (this.isLiked) {
@@ -188,5 +201,36 @@ export class StoryGeneratedPageComponent implements OnInit {
         this.idHistoire ? this.idHistoire : 0
       )
       .subscribe();
+  }
+
+  // Lors du clique sur le bouton favori
+  changeFavori() {
+    this.isFavori = !this.isFavori;
+    if (this.isFavori) {
+      this.listFavori?.push(this.histoire);
+    } else {
+      if (this.listFavori) {
+        this.newListFavori = this.listFavori?.filter(
+          (histoire) => histoire.id !== this.idHistoire
+        );
+        this.listFavori = this.newListFavori;
+      }
+    }
+
+    this.utilisateurService
+      .updateUtilisateur(
+        new Utilisateur(
+          this.authService.getUserId(),
+          null,
+          null,
+          null,
+          this.listFavori,
+          null
+        ),
+        this.authService.getUserId()
+      )
+      .subscribe((utilisateur) => {
+        console.log(this.listFavori);
+      });
   }
 }

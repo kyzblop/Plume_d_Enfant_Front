@@ -13,18 +13,25 @@ p {
 .fa-star {
   top: 15px;
   right: 10px;
+
+  color: #f9cf00;
 }
 
 .fa-eye {
   top: 40px;
   right: 10px;
+
+  color: #2cdd50;
 }
 
 .fa-heart {
   padding-left: 2px;
+
+  color: #db0f0f;
 }
 
-.fa-regular {
+.fa-star,
+.fa-eye {
   display: flex;
   background-color: rgb(39, 39, 39);
   background-size: cover;

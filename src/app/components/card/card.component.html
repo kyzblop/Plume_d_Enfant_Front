@@ -1,8 +1,11 @@
 <div class="card">
   <div class="card_top">
     <img class="picture_card" src="{{ histoire.urlImage }}" alt="imageu" />
-    <i class="fa-regular fa-star" style="color: #ffd43b"></i>
-    <i class="fa-regular fa-eye" style="color: #2cdd50"></i>
+    @if(isFavori == true) {
+    <i class="fa-solid fa-star"></i>
+    } @if(isVue == true) {
+    <i class="fa-regular fa-eye"></i>
+    }
   </div>
 
   <div class="card_bottom">
@@ -13,7 +16,7 @@
     <section class="right_card">
       <div class="react">
         <div class="ligne">
-          <i class="fa-solid fa-heart" style="color: #db0f0f"></i>
+          <i class="fa-solid fa-heart"></i>
           <p>{{ histoire.nbLike }}</p>
         </div>
       </div>

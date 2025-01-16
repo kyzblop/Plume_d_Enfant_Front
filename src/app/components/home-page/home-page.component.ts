@@ -5,6 +5,7 @@ import { Histoire } from '../../model/histoire';
 import { HistoireService } from '../../service/histoire.service';
 import { AuthService } from '../../service/auth.service';
 import { Subscription } from 'rxjs';
+import { UtilisateurService } from '../../service/utilisateur.service';
 
 @Component({
   selector: 'app-home-page',
@@ -19,13 +20,15 @@ export class HomePageComponent implements OnInit {
   dernieresLectures: Histoire[] = [];
 
   isLoad: boolean = false;
+  listVues: Array<Histoire> | null = [];
 
   private authSubscription: Subscription | null = null;
 
   constructor(
     private histoireService: HistoireService,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private utilisateurService: UtilisateurService
   ) {}
 
   ngOnInit(): void {

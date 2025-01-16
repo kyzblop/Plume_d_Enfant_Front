@@ -1,6 +1,11 @@
 <div class="container_stories" [style]="getBackGround()">
   <div class="content_story">
-    <i class="fa-regular fa-star" style="color: #ffd43b"></i>
+    @if(isFavori) {
+    <a (click)="changeFavori()"> <i class="fa-solid fa-star"></i></a>
+    } @else {
+    <a (click)="changeFavori()"> <i class="fa-regular fa-star"></i></a>
+    }
+
     <div class="center_story">
       <p class="title">{{ histoire.titre }}</p>
 
